@@ -1,0 +1,208 @@
+header {
+  width: 100%;
+  background-color: #ffcb05;
+  padding-bottom: 5px;
+}
+
+.topHeader {
+  background-color: #202020;
+  border-radius: 0px 0px 0.9rem 0.9rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.logoImage {
+  width: 150px;
+}
+
+.login {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.login a {
+  text-decoration: none;
+  color: #e9e9e9;
+  padding-right: 10px;
+  transition: 0.4s;
+}
+
+.login a:hover {
+  color: #ffcb05;
+}
+
+.login i {
+  color: #e9e9e9;
+  font-size: 1.2rem;
+  transition: 0.4s;
+}
+
+.login i:hover {
+  transform: skewY(-10deg);
+  color: #007bff;
+}
+
+.date {
+  text-align: center;
+}
+
+.date p {
+  margin-bottom: 0;
+  font-size: 0.8rem;
+  color: #ffffff;
+  font-weight: lighter;
+  line-height: 25px;
+}
+
+.date :last-child {
+  color: #ffcb05;
+}
+
+.searchBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+  background-color: #2e2e2e;
+  padding: 0.7rem;
+  z-index: 2;
+}
+
+.searchBox input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #e9e9e9;
+  width: 90%;
+  margin: 0.7rem 0 0.7rem 0;
+  height: 100%;
+}
+
+.searchBox button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.searchBox i {
+  font-size: 1.4rem;
+  font-weight: lighter;
+  color: #e9e9e9;
+  transition: 0.8s;
+}
+
+.searchBox i:hover {
+  transform: rotate(360deg);
+}
+
+@media only screen and (max-width: 992px) {
+  .searchBox input {
+    font-size: 0.6rem;
+  }
+
+  .date p {
+    font-size: 0.65rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  header {
+    padding-bottom: 10px;
+  }
+  .topHeader {
+    height: 62px;
+    flex-wrap: wrap;
+  }
+
+  .topHeader > * {
+    flex-basis: 50%;
+    min-height: 100%;
+  }
+
+  .logo {
+    order: -2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-right: 5%;
+  }
+
+  .login {
+    order: -1;
+    justify-content: flex-end;
+    padding-left: 5%;
+    font-weight: 800;
+  }
+
+  .searchBox {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 0.1rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: 70%;
+  }
+
+  .searchBox input {
+    font-size: 0.8rem;
+    padding-left: 0;
+    color: #000000;
+  }
+
+  .date {
+    text-align: center;
+    line-height: 7px;
+    margin-top: 10px;
+    padding-right: 40px;
+  }
+
+  .date :last-child {
+    color: #202020;
+    font-size: 14px;
+  }
+  .date p,
+  .date :last-child {
+    font-size: 0.65rem;
+    margin-top: 0.4rem;
+    padding-top: 0.4rem;
+    line-height: 7px;
+    font-weight: 800;
+  }
+
+  .logo {
+    padding-right: 3%;
+  }
+
+  .logo > * {
+    width: 7rem;
+  }
+
+  .login {
+    padding-left: 3%;
+  }
+
+  .login i {
+    font-size: 1rem;
+  }
+
+  .login a {
+    font-size: 0.7rem;
+  }
+
+  .searchBox button i {
+    font-size: 1.1rem;
+    margin-left: -10px;
+  }
+
+  .searchBox input::placeholder {
+    font-size: 0.8rem;
+  }
+}

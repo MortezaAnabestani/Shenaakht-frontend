@@ -1,0 +1,58 @@
+.navbar {
+  width: 100%;
+}
+
+.navbarNav {
+  margin: 0 auto;
+}
+
+.navItem {
+  font-size: 0.9rem;
+  padding-left: 1vw;
+  font-weight: 650;
+}
+.navItem a {
+  transition: 0.3s;
+}
+.navItem a:hover {
+  transform: scale(1.04);
+}
+
+@media only screen and (max-width: 992px) {
+  .navItem {
+    font-size: 0.8rem;
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    padding-right: 0;
+    margin-right: 0;
+    text-align: right;
+  }
+  .navbarToggler {
+    margin-top: 2%;
+    background-image: url("../../../public//assets/images/icons/navbarIcon.svg");
+    background-repeat: no-repeat;
+    background-size: 2rem !important;
+    padding-right: 0;
+    background-position: right;
+  }
+
+  .navbarTogglerIcon {
+    visibility: hidden;
+    outline: none;
+  }
+
+  .navItem {
+    font-size: 0.8rem;
+    padding-top: 1rem;
+    line-height: 0.6rem;
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .navbarNav {
+    margin: 0 10px;
+  }
+}
