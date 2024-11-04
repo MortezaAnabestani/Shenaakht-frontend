@@ -1,0 +1,24 @@
+.reportBody {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: calc(100vw - 108.9vh);
+  border: 1px solid #dee2e6;
+  border-radius: 7px;
+}
+
+.reportBody a {
+  background-color: rgb(248, 248, 248);
+  padding: 6px 4px 4px 4px;
+}
+
+.reportBody h6 {
+  font-size: 13px;
+  font-weight: 700;
+  padding-top: 1px;
+}
+
+@media only screen and (max-width: 768px) {
+  .reportBody {
+    height: 300px;
+  }
+}

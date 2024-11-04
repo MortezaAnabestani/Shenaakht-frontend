@@ -4,11 +4,13 @@ a {
 }
 
 .heroColumnSet {
-  height: 143px;
+  height: 145px; /* ارتفاع مناسب برای جاگیری آیتم‌ها */
   overflow: hidden;
+  position: relative;
   border: 1px solid #b0eafc;
   background-image: url(../../../public/assets/images/heroSliders/wall-heroColume.svg);
   border-radius: 5px 5px 0 0;
+  width: 100%;
 }
 
 .btn {
@@ -41,12 +43,35 @@ a {
   background-image: linear-gradient(-225deg, #b7f8db 0%, #5dbfdb 100%);
 }
 .tickerWrapper {
-  margin-right: 20px;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: tickerScroll 12s linear infinite; /* انیمیشن پیمایش */
+  position: absolute;
+  bottom: -310%;
+  left: 0;
+}
+
+.tickerWrapper:hover {
+  animation-play-state: paused; /* توقف انیمیشن هنگام هاور */
+}
+
+@keyframes tickerScroll {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
 }
 
 .tickerItem {
+  padding: 10px;
   text-align: justify;
+  height: 60px; /* ارتفاع آیتم */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tickerItem:hover {

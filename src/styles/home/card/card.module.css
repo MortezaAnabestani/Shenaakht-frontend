@@ -1,0 +1,48 @@
+@font-face {
+  font-family: vazir;
+  font-weight: lighter;
+  src: url(../../../../public/assets/fonts/Vazir-Thin.ttf);
+}
+
+.cardImage {
+  object-fit: cover;
+}
+
+.cardBody {
+  height: 120px;
+  padding: 1px 10px 5px 10px;
+  border-radius: 5px;
+}
+
+.cardBody small {
+  font-size: 9px;
+  color: grey;
+  margin-bottom: 5px;
+}
+
+.cardTitle {
+  font-size: 12px;
+  font-weight: 450;
+  line-height: 18px;
+}
+
+.btnPostion {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+}
+
+.viewCountPostion {
+  font-size: 10px;
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-family: "vazir";
+}
+
+.readMore {
+  border-radius: 15px;
+  font-size: 0.6rem;
+  border-color: #949393;
+  padding: 0.5rem;
+}

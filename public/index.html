@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="fa" dir="rtl">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
@@ -13,6 +13,7 @@
     />
     <!--bootstrap-->
     <link rel="stylesheet" href="./assets/bootstrap/bootstrap.min.css" />
+
     <title>Shenaakht</title>
   </head>
   <body>
@@ -24,5 +25,16 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+
+    <!-- slider -->
+
+    <script>
+      var splide = new Splide(".splide", {
+        type: "loop",
+        padding: "5rem",
+      });
+
+      splide.mount();
+    </script>
   </body>
 </html>

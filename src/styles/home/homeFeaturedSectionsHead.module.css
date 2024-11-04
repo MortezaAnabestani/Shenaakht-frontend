@@ -1,0 +1,53 @@
+.homeSectionsHead {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+
+.homeSectionsHead > img {
+  width: 60%;
+  height: 2px;
+  background-color: #ffcb05;
+}
+
+.homeSectionsHead > h6 {
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+.readMore {
+  border-radius: 15px;
+  font-size: 0.6rem;
+  border-color: #949393;
+  padding: 0.5rem;
+}
+
+@media only screen and (max-width: 992px) {
+  .homeSectionsHead > img {
+    width: 50%;
+    height: 2px;
+    background-color: #ffcb05;
+  }
+
+  .homeSectionsHead > h6 {
+    font-size: 0.9rem;
+  }
+
+  .homeSectionsHead > button {
+    font-size: 0.6rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .homeSectionsHead > img {
+    width: 35%;
+    height: 2px;
+    background-color: #ffcb05;
+  }
+
+  .homeSectionsHead > h6 {
+    font-size: 0.9rem;
+  }
+}

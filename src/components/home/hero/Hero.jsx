@@ -4,7 +4,7 @@ import HeroColumn from "./HeroColumn";
 
 const Hero = () => {
   return (
-    <div className="mt-3 mb-2 row">
+    <div className="mt-3 mb-2 row d-flex align-items-stretch justify-content-between">
       <HeroSlider />
       <HeroColumn />
     </div>
