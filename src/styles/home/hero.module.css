@@ -1,0 +1,7 @@
+.heroWrapper {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}

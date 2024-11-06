@@ -5,8 +5,8 @@ import moment from "moment-jalaali";
 
 const Card = ({ mainRoute, title, slug, images, viewCount, createdAt }) => {
   return (
-    <div className="col-12 col-md-3" id="articleSlider">
-      <div className="card mb-4 box-shadow">
+    <div className={`col-12 col-md-3`} id="articleSlider">
+      <div className="card mb-0 pb-0 box-shadow">
         <Link to={`/${mainRoute}/${slug}`}>
           <img className={`card-img-top ${styles.cardImage}`} src={images} alt={title} />
         </Link>

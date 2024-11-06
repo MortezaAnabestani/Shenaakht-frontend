@@ -29,7 +29,7 @@ const Header = () => {
             <Link to="/">
               <img
                 className={styles.logoImage}
-                src="../../../assets/images/shenaakht_logo/logoSide.png"
+                src="./assets/images/shenaakht_logo/logoSide.png"
                 alt="logo_shenaakht"
               ></img>
             </Link>

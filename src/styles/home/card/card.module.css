@@ -9,7 +9,7 @@
 }
 
 .cardBody {
-  height: 120px;
+  height: 125px;
   padding: 1px 10px 5px 10px;
   border-radius: 5px;
 }
@@ -45,4 +45,16 @@
   font-size: 0.6rem;
   border-color: #949393;
   padding: 0.5rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .cardTitle {
+    font-size: 11px;
+    line-height: 15px;
+  }
+
+  .readMore {
+    font-size: 0.4rem;
+    padding: 0.4rem;
+  }
 }

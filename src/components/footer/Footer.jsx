@@ -68,9 +68,11 @@ const Footer = () => {
           <div className={styles.footerMiddle_middle}>
             <img src="../../../assets/images/icons/etemad_e_electronic.svg" alt="etemad_e_electronic" />
             <img
-              referrerpolicy="origin"
+              referrerPolicy="origin"
               id="rgvjfukzoeukjxlzfukzrgvj"
-              onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=368163&p=xlaogvkamcsirfthgvkaxlao", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")'
+              onClick={() =>
+                'window.open("https://logo.samandehi.ir/Verify.aspx?id=368163&p=xlaogvkamcsirfthgvkaxlao", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")'
+              }
               alt="logo-samandehi"
               src="https://logo.samandehi.ir/logo.aspx?id=368163&p=qftiwlbqaqgwnbpdwlbqqfti"
             />

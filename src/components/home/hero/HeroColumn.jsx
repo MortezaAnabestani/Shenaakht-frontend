@@ -31,7 +31,7 @@ const HeroColumn = () => {
         <div>
           <div className={styles.tickerWrapper}>
             {ticker.map((item, index) => (
-              <Link to={`/merket/${index}`}>
+              <Link key={index} to={`/merket/${index}`}>
                 <div className={`${fontSizes.px10} ${styles.tickerItem}`} key={index}>
                   <span className={`me-1 mb-4`}>
                     <img src="./assets/images/icons/profile.png" width={"35px"} alt="profile" />

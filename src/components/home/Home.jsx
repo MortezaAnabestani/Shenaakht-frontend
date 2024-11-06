@@ -5,7 +5,7 @@ import FeaturedContactUs from "./featuredItems/FeaturedContacUs";
 import Hero from "./hero/Hero";
 import FeaturedMain from "./featuredItems/FeaturedMain";
 
-const Main = () => {
+const Home = () => {
   return (
     <div className="container">
       <Hero />
@@ -15,4 +15,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Home;

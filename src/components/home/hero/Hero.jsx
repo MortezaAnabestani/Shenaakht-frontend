@@ -1,10 +1,11 @@
 import React from "react";
 import HeroSlider from "./HeroSlider";
 import HeroColumn from "./HeroColumn";
+import styles from "../../../styles/home/hero.module.css";
 
 const Hero = () => {
   return (
-    <div className="mt-3 mb-2 row d-flex align-items-stretch justify-content-between">
+    <div className={`${styles.heroWrapper} row`}>
       <HeroSlider />
       <HeroColumn />
     </div>

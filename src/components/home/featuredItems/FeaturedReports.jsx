@@ -8,7 +8,7 @@ const FeaturedReports = ({ testContent }) => {
   const numberOfReports = -20;
 
   return (
-    <div className="col-12 col-md-3 d-flex flex-column">
+    <div className={`col-12 col-md-3 d-flex flex-column ${styles.reportBodyWrapper}`}>
       <div className={sub_Styles.homeSectionsHead}>
         <img src="./assets/images/lines/barline.svg" alt="brline" style={{ width: "22%" }} />
         <h6>

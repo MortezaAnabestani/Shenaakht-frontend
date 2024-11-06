@@ -3,6 +3,7 @@ import sub_Styles from "../../../styles/home/homeFeaturedSectionsHead.module.css
 import { Link } from "react-router-dom";
 import Card from "../card/Card";
 import SliderCards from "../card/SliderCards";
+import styles from "../../../styles/home/featuredMainItems.module.css";
 
 const FeaturedMainItems = ({ testContent }) => {
   const numberOfCards = 4;
@@ -13,14 +14,11 @@ const FeaturedMainItems = ({ testContent }) => {
   };
 
   return (
-    <div className={`col-12 col-md-9 d-flex flex-column`}>
+    <div className={`col-12 col-md-9 d-flex flex-column ${styles.featuredMainItemsWrapper}`}>
       {testContent?.map((items, index) => {
         const sectionKey = Object.keys(sections).find((key) => items[key]);
         const section = sectionKey ? sections[sectionKey] : null;
         if (!section) return null;
-
-        console.log(items[sectionKey]);
-
         return (
           <div key={index}>
             <div className={sub_Styles.homeSectionsHead}>

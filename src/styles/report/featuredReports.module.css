@@ -1,9 +1,12 @@
+.reportBodyWrapper {
+  height: inherit;
+}
 .reportBody {
   overflow-y: scroll;
   overflow-x: hidden;
-  height: calc(100vw - 108.9vh);
   border: 1px solid #dee2e6;
   border-radius: 7px;
+  margin-bottom: 6px;
 }
 
 .reportBody a {

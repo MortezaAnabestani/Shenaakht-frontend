@@ -1,0 +1,108 @@
+.aboutUs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 300px;
+  margin-bottom: 3vh;
+  margin-top: 1vh;
+  border-radius: 15px;
+  background: #d3d3d3;
+  background: conic-gradient(from 90deg, #d3d3d3, #efefef);
+  box-shadow: 1px 1px 5px 0px rgba(112, 110, 112, 1);
+  margin-top: 20px;
+}
+.aboutUs_right {
+  margin-right: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.aboutUs_right h6 {
+  font-size: 13.5px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+.aboutUs_right p {
+  font-size: 11px;
+  color: #5d5d5d;
+  text-align: justify;
+}
+.aboutUs_right_button * {
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  padding: 0.6rem 1rem 0.6rem 1rem;
+  border-color: #5d5d5d;
+  margin-left: 0.5rem;
+  color: white;
+}
+.mainHiddenContent_button {
+  border-radius: 2rem;
+  font-size: 0.7rem;
+  padding: 0.9rem 1.5rem 0.9rem 1.5rem;
+  border-color: #5d5d5d;
+  margin-left: 1.2rem;
+}
+
+.aboutUs_left > img {
+  -webkit-clip-path: polygon(0 0, 80% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 0, 79% 0%, 98% 100%, 0% 100%);
+  width: 40vw;
+  margin-left: -16px;
+  height: 302px;
+  object-fit: cover;
+  border-radius: 15px 0 0 15px;
+}
+
+.firstLink {
+  background-color: #ffcb05;
+  text-decoration: none;
+}
+
+.secondLink {
+  color: black;
+  border: 1px solid darkgrey;
+}
+
+@media only screen and (max-width: 768px) {
+  .aboutUs {
+    flex-direction: column-reverse;
+    margin-top: 8vw;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 9vw;
+    max-height: none;
+    background: transparent;
+    background-image: none;
+    box-shadow: none;
+  }
+
+  .aboutUs_right {
+    justify-content: center;
+    align-items: center;
+    margin-right: 0;
+  }
+
+  .aboutUs_left {
+    width: 100%;
+    display: contents;
+  }
+
+  .aboutUs_left > img {
+    -webkit-clip-path: polygon(0 0, 80% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+    width: 100%;
+    margin-bottom: 2vw;
+    margin-left: 0px;
+    height: fit-content;
+  }
+  .aboutUs_right p {
+    font-size: 9.8px;
+  }
+  .aboutUs_right_button * {
+    border-radius: 10px;
+    font-size: 0.7rem;
+    padding: 0.4rem 0.8rem 0.4rem 0.8rem;
+  }
+}
