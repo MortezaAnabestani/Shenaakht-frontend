@@ -1,0 +1,40 @@
+.infoFilter {
+  width: 55%;
+}
+.infoFilter h5 {
+  font-size: 16px;
+}
+
+.selectInput {
+  position: relative;
+}
+
+.downArrow {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 15px;
+}
+
+.searchBox {
+  margin-bottom: 10px;
+}
+.searchBox input {
+  font-size: 12px;
+  border-radius: 0 5px 5px 0 !important;
+}
+
+.searchBox button {
+  font-size: 13px;
+  border-radius: 5px 0 0 5px;
+}
+
+@media only screen and (max-width: 768px) {
+  .infoFilter {
+    width: 97%;
+  }
+
+  .infoFilter h5 {
+    font-size: 14px;
+  }
+}

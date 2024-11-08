@@ -6,17 +6,11 @@ import MarketHome from "../pages/market/MarketHome";
 import MarketDetails from "../pages/market/MarketDetails";
 import Login from "../pages/auth/Login";
 import Signup from "../pages/auth/Signup";
-import ArticlesList from "../pages/article/ArticlesList";
-import ArticleDetail from "../pages/article/ArticleDetail";
-import DataFilesList from "../pages/dataFile/DataFilesList";
-import DataFileDetail from "../pages/dataFile/DataFileDetail";
-import PollsList from "../pages/poll/PollsList";
-import PollDetail from "../pages/poll/PollDetail";
-import ReportsList from "../pages/report/ReportsList";
-import ReportDetail from "../pages/report/ReportDetail";
 import AdvancedSearch from "../pages/search/AdvancedSearch";
 import AboutUs from "../pages/us/AboutUs";
 import ContactUs from "../pages/us/ContactUs";
+import ContentDetails from "../pages/content/ContentDetails";
+import ContentPage from "../pages/content/ContentPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -36,44 +30,20 @@ const router = createBrowserRouter([
         element: <MarketDetails />,
       },
       {
-        path: "/login",
+        path: "auth/login",
         element: <Login />,
       },
       {
-        path: "/register",
+        path: "auth/register",
         element: <Signup />,
       },
       {
-        path: "/articles",
-        element: <ArticlesList />,
+        path: "/:type",
+        element: <ContentPage />,
       },
       {
-        path: "/article/:id",
-        element: <ArticleDetail />,
-      },
-      {
-        path: "/dataFiles",
-        element: <DataFilesList />,
-      },
-      {
-        path: "/dataFile/:id",
-        element: <DataFileDetail />,
-      },
-      {
-        path: "/polls",
-        element: <PollsList />,
-      },
-      {
-        path: "/poll/:id",
-        element: <PollDetail />,
-      },
-      {
-        path: "/reports",
-        element: <ReportsList />,
-      },
-      {
-        path: "/report/:id",
-        element: <ReportDetail />,
+        path: "/:type/:id",
+        element: <ContentDetails />,
       },
       {
         path: "/advancedSearch",

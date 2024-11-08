@@ -1,8 +1,8 @@
 import React from "react";
 import sub_Styles from "../../../styles/home/homeFeaturedSectionsHead.module.css";
 import { Link } from "react-router-dom";
-import Card from "../card/Card";
-import SliderCards from "../card/SliderCards";
+import Card from "../../card/Card";
+import SliderCards from "../../card/SliderCards";
 import styles from "../../../styles/home/featuredMainItems.module.css";
 
 const FeaturedMainItems = ({ testContent }) => {
@@ -11,6 +11,7 @@ const FeaturedMainItems = ({ testContent }) => {
   const sections = {
     pollsContent_test: { path: "/polls", title: "نظرسنجی‌ها" },
     articleContent_test: { path: "/articles", title: "مقاله‌ها" },
+    dataContent_test: { path: "/datafiles", title: "پرونده‌های آماری" },
   };
 
   return (
@@ -23,7 +24,7 @@ const FeaturedMainItems = ({ testContent }) => {
           <div key={index}>
             <div className={sub_Styles.homeSectionsHead}>
               <h6>{section?.title}</h6>
-              <img src="./assets/images/lines/barline.svg" alt="bar line" />
+              <img src="/assets/images/lines/barline.svg" alt="bar line" />
               <Link to={`${section?.path}`} className={`btn btn-sm ${sub_Styles.readMore} btn-dark`}>
                 مطالعۀ بیش‌تر
               </Link>

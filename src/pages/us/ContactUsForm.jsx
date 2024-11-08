@@ -4,10 +4,10 @@ import styles from "../../styles/us/contactUsForm.module.css";
 const ContactUsForm = () => {
   return (
     <div className={styles.formRequest}>
-      <img src="../../../assets/images/icons/mail/mail_form_icon1.svg" alt="mail icon 1" />
-      <img src="../../../assets/images/icons/mail/mail_form_icon2.svg" alt="mail icon 2" />
+      <img src="/assets/images/icons/mail/mail_form_icon1.svg" alt="mail icon 1" />
+      <img src="/assets/images/icons/mail/mail_form_icon2.svg" alt="mail icon 2" />
       <div className={styles.formRequest_box}>
-        <img src="../../../assets/images/icons/contactBox_icon.svg" alt="contact icon" />
+        <img src="/assets/images/icons/contactBox_icon.svg" alt="contact icon" />
         <h6>
           ارسال <span style={{ color: "#ffcb05" }}>پیام</span>
         </h6>
@@ -21,8 +21,8 @@ const ContactUsForm = () => {
           <button type="submit">ارسال پیام</button>
         </form>
       </div>
-      <img src="../../../assets/images/icons/mail/mail_form_icon3.svg" alt="mail icon 3" />
-      <img src="../../../assets/images/icons/mail/mail_form_icon4.svg" alt="mail icon 4" />
+      <img src="/assets/images/icons/mail/mail_form_icon3.svg" alt="mail icon 3" />
+      <img src="/assets/images/icons/mail/mail_form_icon4.svg" alt="mail icon 4" />
     </div>
   );
 };

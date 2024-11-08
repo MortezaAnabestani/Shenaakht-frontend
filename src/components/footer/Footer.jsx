@@ -1,18 +1,15 @@
 import React from "react";
 import styles from "../../styles/footer/footer.module.css";
 import { Link } from "react-router-dom";
+import MediaIconPart from "../other/MediaIconPart";
 
 const Footer = () => {
   return (
     <footer>
       <div className="container">
         <div className={styles.footerTop}>
-          <img src="../../../assets/images/shenaakht_logo/logoBottom.png" alt="shenaakht_logo" />
-          <img
-            className="d-none"
-            src="../../../assets/images/shenaakht_logo/logoSide.png"
-            alt="shenaakht_logo"
-          />
+          <img src="/assets/images/shenaakht_logo/logoBottom.png" alt="shenaakht_logo" />
+          <img className="d-none" src="/assets/images/shenaakht_logo/logoSide.png" alt="shenaakht_logo" />
           <p>
             <b className="fw-900">ما شناختیم...</b>
             <br />
@@ -25,15 +22,15 @@ const Footer = () => {
           </p>
         </div>
         <div className={`${styles.footerLineHidden} d-none`}>
-          <img src="../../../assets/images/lines/barline.svg" alt="line" />
+          <img src="/assets/images/lines/barline.svg" alt="line" />
           <p>ارتباط با ما</p>
-          <img src="../../../assets/images/lines/barline.svg" alt="line" />
+          <img src="/assets/images/lines/barline.svg" alt="line" />
         </div>
         <div className={styles.footerLine}>
           <p>ارتباط با ما</p>
-          <img src="../../../assets/images/lines/barline.svg" alt="line" />
+          <img src="/assets/images/lines/barline.svg" alt="line" />
           <p>نمادهای الکترونیک</p>
-          <img src="../../../assets/images/lines/barline.svg" alt="line" />
+          <img src="/assets/images/lines/barline.svg" alt="line" />
           <p>پیوست‌ها</p>
         </div>
         <div className={styles.footerMiddle}>
@@ -66,7 +63,7 @@ const Footer = () => {
             </div>
           </div>
           <div className={styles.footerMiddle_middle}>
-            <img src="../../../assets/images/icons/etemad_e_electronic.svg" alt="etemad_e_electronic" />
+            <img src="/assets/images/icons/etemad_e_electronic.svg" alt="etemad_e_electronic" />
             <img
               referrerPolicy="origin"
               id="rgvjfukzoeukjxlzfukzrgvj"
@@ -78,9 +75,9 @@ const Footer = () => {
             />
           </div>
           <div className={`${styles.footerLineHidden} d-none`}>
-            <img src="../../../assets/images/lines/barline.svg" alt="line" />
+            <img src="/assets/images/lines/barline.svg" alt="line" />
             <p>پیوست‌ها</p>
-            <img src="../../../assets/images/lines/barline.svg" alt="line" />
+            <img src="/assets/images/lines/barline.svg" alt="line" />
           </div>
           <div className={styles.footerMiddle_left}>
             <div className={styles.footerMiddle_left_item_left}>
@@ -120,18 +117,7 @@ const Footer = () => {
             </p>
           </div>
           <div className={styles.mediaIcons}>
-            <Link target="_blank" to="https://www.instagram.com/shenaakht_center/">
-              <img src="../../../assets/images/icons/media/instagram.svg" alt="instagram_shenaakht" />
-            </Link>
-            <Link target="_blank" to="tg://resolve?domain=shenaakht_center">
-              <img src="../../../assets/images/icons/media/telegram.svg" alt="telegram_shenaakht" />
-            </Link>
-            <Link target="_blank" to="https://twitter.com/ShenaakhtCenter">
-              <img src="../../../assets/images/icons/media/twiiterX.svg" alt="twiiterX_shenaakht" />
-            </Link>
-            <Link target="_blank" to="https://eitaa.com/shenaakht_center">
-              <img src="../../../assets/images/icons/media/eitaa.png" alt="eitaa_shenaakht" />
-            </Link>
+            <MediaIconPart />
           </div>
         </div>
       </div>

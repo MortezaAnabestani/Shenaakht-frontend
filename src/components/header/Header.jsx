@@ -29,7 +29,7 @@ const Header = () => {
             <Link to="/">
               <img
                 className={styles.logoImage}
-                src="./assets/images/shenaakht_logo/logoSide.png"
+                src="/assets/images/shenaakht_logo/logoSide.png"
                 alt="logo_shenaakht"
               ></img>
             </Link>
@@ -51,7 +51,7 @@ const Header = () => {
           </form>
           <div className={styles.login}>
             <i className="fa fa-user" aria-hidden="true"></i>
-            <Link to="/login" className={fontSizes.px13}>
+            <Link to="auth/login" className={fontSizes.px13}>
               ورود<span className="text-info">/</span>ثبت‌نام
             </Link>
           </div>

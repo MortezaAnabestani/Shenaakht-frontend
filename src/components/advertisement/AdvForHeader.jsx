@@ -10,7 +10,7 @@ const AdvForHeader = () => {
           <Link className="align-self-start me-2 mt-2 p-1" onClick={() => setAdv(!adv)}>
             <i class="fa fa-close text-light"></i>
           </Link>
-          <img src="./assets/images/adv/advForHeader.png" alt="adv" />
+          <img src="/assets/images/adv/advForHeader.png" alt="adv" />
           <p className="text-info fs-6 align-self-end mt-2 ms-2">تبلیغات</p>
         </div>
       </div>

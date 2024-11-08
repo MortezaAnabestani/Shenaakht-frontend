@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "../../../styles/us/featuredContactUs.module.css";
-import fontSizes from "../../../styles/fontSizes/fontSizes.module.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const FeaturedContacUs = () => {
   return (
@@ -19,24 +18,24 @@ const FeaturedContacUs = () => {
             <h6>می‌توان شناخت</h6>
             <p className="text-center">سوالات خود را از کارشناسان ما در شناخت بپرسید</p>
             <div className={`${styles.aboutUs_right_button} mt-2`}>
-              <NavLink to={"/contactUs"} className={styles.firstLink}>
+              <Link to={"/contactUs"} className={styles.firstLink}>
                 ثبت مشاوره
-              </NavLink>
+              </Link>
             </div>
           </div>
           <div className="text-center">
             <h6>شناخت‌بازار</h6>
             <p className="text-center">نخستین دیوار نیازمندی‌ها و ارائۀ خدمات پژوهشی اجتماعی</p>
             <div className={`${styles.aboutUs_right_button} mt-2`}>
-              <NavLink to={"/market"} className={styles.firstLink} style={{ backgroundColor: "#54ABC3" }}>
+              <Link to={"/market"} className={styles.firstLink} style={{ backgroundColor: "#54ABC3" }}>
                 ثبت سفارش
-              </NavLink>
+              </Link>
             </div>
           </div>
         </div>
       </div>
       <div className={styles.aboutUs_left}>
-        <img src="./assets/images/photo/aboutUsHome.png" alt="about us" />
+        <img src="/assets/images/photo/aboutUsHome.png" alt="about us" />
       </div>
     </div>
   );

@@ -2,8 +2,11 @@ import React from "react";
 import FeaturedMainItems from "./FeaturedMainItems";
 import FeaturedReports from "./FeaturedReports";
 import styles from "../../../styles/home/featuredMain.module.css";
+
+//test
 import pollsContent_test from "../../../pollscontent_test.js";
 import articleContent_test from "../../../articlecontent_test.js";
+import dataContent_test from "../../../articlecontent_test.js";
 import reportcontent_test from "../../../reportcontent_test.js";
 
 const FeaturedMain = () => {

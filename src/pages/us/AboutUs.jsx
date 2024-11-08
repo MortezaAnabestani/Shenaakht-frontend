@@ -5,7 +5,7 @@ const AboutUs = () => {
   return (
     <div className="container">
       <div className={styles.baner}>
-        <img src="../../../assets/images/photo/iranSociety.jpg" alt="about us" />
+        <img src="/assets/images/photo/iranSociety.jpg" alt="about us" />
         <div className={styles.banerTitle}>
           <h6>اهالی شناخت...</h6>
         </div>
@@ -24,11 +24,7 @@ const AboutUs = () => {
             تحولات پیش‌روی جامعه را در حوزه‌های گوناگون پیش‌بینی کند.
           </p>
         </div>
-        <img
-          className="d-none d-lg-block"
-          src="../../../assets/images/lines/verticalLine.svg"
-          alt="vertical line"
-        />
+        <img className="d-none d-lg-block" src="/assets/images/lines/verticalLine.svg" alt="vertical line" />
         <div className={`${styles.mainContent_landingPage_bottom_item} col-lg-3`}>
           <span className={styles.mainContent_aboutUs_count}>
             <h5>
@@ -43,11 +39,7 @@ const AboutUs = () => {
             سازمان نیاز دارند به طور مستمر ابعاد مختلف حیات اجتماعی و تغییرات آن را پیش چشم داشته باشند.
           </p>
         </div>
-        <img
-          className="d-none d-lg-block"
-          src="../../../assets/images/lines/verticalLine.svg"
-          alt="vertical line"
-        />
+        <img className="d-none d-lg-block" src="/assets/images/lines/verticalLine.svg" alt="vertical line" />
         <div className={`${styles.mainContent_landingPage_bottom_item} col-lg-3`}>
           <span className={styles.mainContent_aboutUs_count}>
             <h5>
@@ -81,7 +73,7 @@ const AboutUs = () => {
         </p>
       </div>
       <div className={styles.aboutUs_explain}>
-        <img src="../../../assets/images/icons/aboutUs_icon.svg" alt="aboutUs icon" />
+        <img src="/assets/images/icons/aboutUs_icon.svg" alt="aboutUs icon" />
         <h6>
           <span style={{ color: "#ffcb05" }}>ضرورت</span> شناخت
         </h6>
