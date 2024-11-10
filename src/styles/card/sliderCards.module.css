@@ -40,7 +40,7 @@
 .sliderCardBodyInfo_right {
   font-size: 9px;
   color: grey;
-  margin-bottom: 5px;
+  margin: 5px auto;
 }
 
 .sliderCardBodyInfo_left {

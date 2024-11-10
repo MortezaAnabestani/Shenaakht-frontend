@@ -100,7 +100,7 @@ const Footer = () => {
                 <Link to="/aboutUs"> سوالات متدوال</Link>
               </div>
               <div className={styles.footerMiddle_left_item}>
-                <i className="fa fa-chevron-left"></i>
+                <i class="fa fa-chevron-left"></i>
                 <Link to="/aboutUs"> دربارۀ ما</Link>
               </div>
               <div className={styles.footerMiddle_left_item}>

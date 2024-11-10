@@ -4,10 +4,10 @@ import FeaturedReports from "./FeaturedReports";
 import styles from "../../../styles/home/featuredMain.module.css";
 
 //test
-import pollsContent_test from "../../../pollscontent_test.js";
-import articleContent_test from "../../../articlecontent_test.js";
-import dataContent_test from "../../../articlecontent_test.js";
-import reportcontent_test from "../../../reportcontent_test.js";
+import pollsContent_test from "../../../testContent/pollscontent_test.js";
+import articleContent_test from "../../../testContent/articlecontent_test.js";
+import dataContent_test from "../../../testContent/articlecontent_test.js";
+import reportcontent_test from "../../../testContent/reportcontent_test.js";
 
 const FeaturedMain = () => {
   const testContent = [{ pollsContent_test }, { articleContent_test }];

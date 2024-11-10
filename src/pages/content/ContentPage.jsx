@@ -1,16 +1,16 @@
 import React from "react";
 import styles from "../../styles/content/contentList.module.css";
+import sub_styles from "../../styles/card/reportsCard.module.css";
 import Card from "../../components/card/Card.jsx";
 import InfoSearchBox from "../../components/other/InfoSearchBox.jsx";
 import { useParams } from "react-router";
 
 //test
-import pollsContent from "../../pollscontent_test.js";
-import articleContent from "../../articlecontent_test.js";
-import reportContent from "../../reportcontent_test.js";
-import datafilesContent from "../../datacontent_test.js";
-import moment from "moment-jalaali";
-import { Link } from "react-router-dom";
+import pollsContent from "../../testContent/pollscontent_test.js";
+import articleContent from "../../testContent/articlecontent_test.js";
+import reportContent from "../../testContent/reportcontent_test.js";
+import datafilesContent from "../../testContent/datacontent_test.js";
+import ReportsCard from "../../components/card/ReportsCard.jsx";
 
 const ContentPage = () => {
   const { type } = useParams();
@@ -24,24 +24,11 @@ const ContentPage = () => {
   let testContent = contentMap[type] || null; // Default to null if type is not found
 
   const renderReports = () => (
-    <div className={styles.reportsWrapper}>
+    <div className={sub_styles.reportsWrapper}>
       <img src="/assets/images/icons/attachment.png" alt="attachment icon" />
       <ul>
         {testContent?.map((report, index) => (
-          <li key={index} className={styles.reportItem}>
-            <small>
-              {moment(report.createdAt?.$date || report.createdAt, "YYYY/MM/DD")
-                .locale("fa")
-                .format("jD jMMMM jYYYY")}
-            </small>
-            <h5>{report.title}</h5>
-            <p>
-              {report.body.substring(0, 450)}...{" "}
-              <Link className="me-2" to={`${report._id}`}>
-                ادامۀ خبر
-              </Link>
-            </p>
-          </li>
+          <ReportsCard report={report} key={index} />
         ))}
       </ul>
     </div>

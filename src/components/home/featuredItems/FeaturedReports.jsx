@@ -20,12 +20,12 @@ const FeaturedReports = ({ testContent }) => {
         <div className="col-12 p-0">
           <div className="list-group advanced-news-column">
             {testContent.slice(numberOfReports).map((report, index) => {
-              const { title, body, _id } = report;
+              const { title, body, _id, slug } = report;
               const id = _id?.$oid || _id;
               return (
                 <Link
                   key={index}
-                  to={`reports/${id}`}
+                  to={`reports/${slug}-${id}`}
                   className="list-group-item list-group-item-action pe-1 pt-2"
                 >
                   <div className="d-flex w-100">

@@ -6,23 +6,24 @@ import moment from "moment-jalaali";
 import { useParams } from "react-router";
 
 //test
-import pollsContent from "../../pollscontent_test.js";
-import articleContent from "../../articlecontent_test.js";
-import reportContent from "../../reportcontent_test.js";
-import datafilesContent from "../../datacontent_test.js";
+import pollsContent from "../../testContent/pollscontent_test.js";
+import articleContent from "../../testContent/articlecontent_test.js";
+import reportContent from "../../testContent/reportcontent_test.js";
+import datafilesContent from "../../testContent/datacontent_test.js";
+import CopyPathBtn from "../../components/other/CopyPathBtn.jsx";
 
 const ContentDetails = () => {
   const { type, id } = useParams();
 
   let content;
   if (type === "articles") {
-    content = articleContent?.find((item) => (item._id?.$oid || item._id) === id);
+    content = articleContent?.find((item) => `${item.slug}-${item._id?.$oid || item._id}` === id);
   } else if (type === "polls") {
-    content = pollsContent?.find((item) => (item._id?.$oid || item._id) === id);
+    content = pollsContent?.find((item) => `${item.slug}-${item._id?.$oid || item._id}` === id);
   } else if (type === "reports") {
-    content = reportContent?.find((item) => (item._id?.$oid || item._id) === id);
+    content = reportContent?.find((item) => `${item.slug}-${item._id?.$oid || item._id}` === id);
   } else if (type === "datafiles") {
-    content = datafilesContent?.find((item) => (item._id?.$oid || item._id) === id);
+    content = datafilesContent?.find((item) => `${item.slug}-${item._id?.$oid || item._id}` === id);
   }
 
   return (
@@ -56,17 +57,7 @@ const ContentDetails = () => {
         </div> */}
 
         {/* copyPath  */}
-        <div className={styles.copyPathWrapper}>
-          <input
-            className={styles.copyPathInput}
-            type="text"
-            value={`https://shenaakht.com/${content.slug}`}
-            id="copyPath"
-          />
-          <button className={styles.copyPathBtn} onclick="myFunction()">
-            کپی پیوند
-          </button>
-        </div>
+        <CopyPathBtn content={content} />
         <div
           className={`${styles.contentBottom} d-flex flex-column flex-sm-row justify-content-between align-items-center`}
         >

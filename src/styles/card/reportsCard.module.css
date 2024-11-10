@@ -1,0 +1,64 @@
+/* reports part */
+.reportsWrapper {
+  width: 70%;
+  margin: 0 auto;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  border-radius: 10px;
+  padding: 0;
+  position: relative;
+  rotate: -0.4deg;
+}
+
+.reportsWrapper img {
+  width: 60px;
+  position: absolute;
+  left: 20px;
+  top: -17px;
+}
+
+.reportsWrapper ul {
+  padding: 10px;
+}
+.reportItem {
+  line-height: 28px;
+  text-align: justify;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.reportItem:hover {
+  background-color: rgb(240, 249, 255);
+}
+
+.reportItem small {
+  font-size: 10px;
+  color: goldenrod;
+}
+.reportItem h5 {
+  font-size: 16px;
+}
+.reportItem p {
+  font-size: 13px;
+  color: rgb(133, 133, 133);
+}
+.reportItem a {
+  color: goldenrod;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 6px;
+  border: 1px solid goldenrod;
+  border-radius: 10px;
+}
+
+.reportItem a:hover {
+  background-color: goldenrod;
+  color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  .reportsWrapper {
+    width: 93%;
+    rotate: 0deg;
+  }
+}

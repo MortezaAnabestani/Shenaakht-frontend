@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import styles from "../../styles/home/card/sliderCards.module.css";
+import styles from "../../styles/card/sliderCards.module.css";
 import { Link } from "react-router-dom";
 import moment from "moment-jalaali";
 import Splide from "@splidejs/splide";
@@ -47,7 +47,7 @@ const SliderCards = ({ items, numberOfCards, mainRoute }) => {
                 <ul className="splide__list" id="side-padding-list" role="presentation">
                   {items.map((item, index) => {
                     const id = item._id?.$oid || item._id;
-
+                    const slug = item.slug;
                     return (
                       <li
                         key={id} // اضافه کردن کلید منحصر به فرد
@@ -59,12 +59,11 @@ const SliderCards = ({ items, numberOfCards, mainRoute }) => {
                       >
                         <div className={styles.sliderCard}>
                           <div className="card mb-4 box-shadow">
-                            <Link to={`${mainRoute}/${id}`}>
+                            <Link to={`${mainRoute}/${slug}-${id}`}>
                               <img className="card-img-top" src={item.images} alt={item.title} />
                             </Link>
-                            <div className={`card-body ${styles.sliderCardBody}`}>
-                              <small className={`${styles.sliderCardBodyInfo_right} text-right`}>
-                                ارسال‌شده در
+                            <div className={`card-body ${styles.sliderCardBody} d-flex flex-column`}>
+                              <small className={`${styles.sliderCardBodyInfo_right}`}>
                                 {moment(item.createdAt?.$date || item.createdAt, "YYYY/MM/DD")
                                   .locale("fa")
                                   .format("jD jMMMM jYYYY")}

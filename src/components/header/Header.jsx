@@ -16,8 +16,6 @@ const Header = () => {
 
   const searchHandler = (e) => {
     e.preventDefault();
-    console.log(search);
-    setSearch("");
   };
 
   return (

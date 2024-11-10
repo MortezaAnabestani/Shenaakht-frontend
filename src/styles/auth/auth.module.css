@@ -1,0 +1,68 @@
+.authWrapper label {
+  font-size: 12px;
+  margin-right: 5px;
+  color: grey;
+}
+
+.authWrapper ::placeholder {
+  font-size: 10px;
+  opacity: 50%;
+}
+
+.authWrapper a {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 15px;
+}
+
+.leftInput input {
+  direction: ltr;
+}
+
+.lastElementLogin {
+  position: relative;
+}
+
+.lastElementLogin span {
+  position: absolute;
+  left: -10px;
+  bottom: -15px;
+}
+
+.lastElementLogin img {
+  width: 20px;
+  margin-top: 8px;
+}
+
+.lastElementLogin a {
+  font-size: 11px;
+  border: 2.5px solid #ffcb21;
+  padding: 3px 8px;
+  border-radius: 15px;
+}
+
+.forgottenLink {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.forgottenLink img {
+  width: 25px;
+  transition: 1s;
+  cursor: help;
+}
+
+.forgottenLink img:hover {
+  rotate: 5deg;
+  transition: 1s;
+}
+
+.forgottenLink a {
+  color: darkgray;
+  transition: 3s;
+}
+
+.forgottenLink a:hover {
+  color: black;
+}
