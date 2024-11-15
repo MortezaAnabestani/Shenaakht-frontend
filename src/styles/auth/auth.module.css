@@ -15,6 +15,10 @@
   border-radius: 15px;
 }
 
+.authWrapper input {
+  font-size: 12px;
+}
+
 .leftInput input {
   direction: ltr;
 }

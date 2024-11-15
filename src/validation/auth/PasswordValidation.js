@@ -36,11 +36,11 @@ const PasswordValidation = ({ password }) => {
         </div>
         <div style={{ color: passwordValidation.hasSymbol ? "green" : "red" }}>
           {passwordValidation.hasSymbol ? "✔ " : "✘ "}
-          یک کاراکتر خاص
+          یک نویسۀ خاص
         </div>
         <div style={{ color: passwordValidation.hasValidLength ? "green" : "red" }}>
           {passwordValidation.hasValidLength ? "✔ " : "✘ "}
-          هشت کاراکتر
+          هشت نویسه
         </div>
       </div>
     )

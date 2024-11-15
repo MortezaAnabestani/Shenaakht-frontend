@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import styles from "../../styles/auth/auth.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PasswordValidation from "../../validation/auth/PasswordValidation";
 import { Eye, EyeOff } from "react-feather";
+import axios from "axios";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -10,28 +11,52 @@ const Signup = () => {
   const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
-  const [ValidationErrors, setValidationErrors] = useState(false);
+  const [validationErrors, setValidationErrors] = useState(null);
   const [showPass, setShowPass] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const navigate = useNavigate();
 
-  const formHandler = (e) => {
+  const registerHandler = async (e) => {
     e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:8080/auth/register", {
+        name,
+        email,
+        mobile,
+        password,
+      });
+      setShowSuccessMessage(true);
+      setValidationErrors(null);
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        setValidationErrors(error.response.data);
+      }
+    }
   };
 
   return (
     <div className="container mt-4">
       <div className="row justify-content-center">
         <div className="col-12 col-md-6 mb-4">
+          {showSuccessMessage && (
+            <div className="alert alert-success mt-2 text-center" role="alert">
+              <p className="pt-2">{name} عزیز! ثبت‌نام شما با موفقیت انجام شد</p>
+            </div>
+          )}
           <div className="card card-default">
             <div className="card-header text-center">
               <h6 className="pt-2">اهل شناخت شوید</h6>
             </div>
             <div className={`card-body ${styles.authWrapper}`}>
               <form
-                onSubmit={formHandler}
+                onSubmit={registerHandler}
                 className="form-horizontal"
                 method="POST"
-                action="/auth/register"
-                novalidate
+                action="/api/register"
+                noValidate
               >
                 <div className="form-group mb-2">
                   <label htmlFor="name" className="control-label">
@@ -70,10 +95,10 @@ const Signup = () => {
                   </label>
                   <input
                     id="mobile"
-                    type="mobile"
+                    type="number"
                     className="form-control"
-                    name="email"
-                    placeholder="۰۹۱۵-۱۲۳۴۵۶۷"
+                    name="mobile"
+                    placeholder="۰۹۱۵۱۲۳۴۵۶۷"
                     required
                     value={mobile}
                     onChange={(e) => setMobile(e.target.value)}
@@ -94,7 +119,9 @@ const Signup = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     onKeyDown={() => {
                       setIsPasswordFocused(true);
-                      setValidationErrors(true);
+                    }}
+                    onMouseOut={() => {
+                      setIsPasswordFocused(false);
                     }}
                   />
                   <span
@@ -108,13 +135,52 @@ const Signup = () => {
                   </span>
                   {isPasswordFocused && <PasswordValidation password={password} />}
                 </div>
+                {validationErrors && (
+                  <div className="mt-2 p-2">
+                    {Object?.keys(validationErrors)?.map((key) => {
+                      if (typeof validationErrors[key] === "object") {
+                        return Object.values(
+                          validationErrors[key]?.map((error) => (
+                            <p style={{ fontSize: "12px", color: "red" }} key={error}>
+                              <span>
+                                <img
+                                  className="ms-1"
+                                  src="/assets/images/icons/warning_icon.png"
+                                  alt="warning icon"
+                                  width="18px"
+                                />
+                              </span>
+                              {error}
+                            </p>
+                          ))
+                        );
+                      }
+                      return (
+                        <p style={{ fontSize: "12px", color: "red" }} key={key}>
+                          <span>
+                            <img
+                              className="ms-1"
+                              src="/assets/images/icons/warning_icon.png"
+                              alt="warning icon"
+                              width="18px"
+                            />
+                          </span>
+                          {validationErrors[key]}
+                        </p>
+                      );
+                    })}
+                  </div>
+                )}
 
                 <div className="form-group mb-4">ریکپچا</div>
-
                 <div className="form-group mb-5 text-center">
-                  <Link type="submit" className="btn btn-sm ms-3" style={{ backgroundColor: "#FFCB05" }}>
+                  <button
+                    type="submit"
+                    className="btn btn-sm ms-3 rounded-5"
+                    style={{ backgroundColor: "#FFCB05" }}
+                  >
                     ثبت‌نام
-                  </Link>
+                  </button>
                   <Link
                     href="/auth/google"
                     className="btn btn-sm"
