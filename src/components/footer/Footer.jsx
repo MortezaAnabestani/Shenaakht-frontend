@@ -36,7 +36,9 @@ const Footer = () => {
         <div className={styles.footerMiddle}>
           <div className={styles.footerMiddle_right}>
             <div className={`${styles.footerMiddle_right_item} col-6 p-0`}>
-              <i className="fa fa-envelope" aria-hidden="true"></i>
+              <i>
+                <img src="/assets/images/icons/mail/envelopeIcon.svg" alt="envelope icon" width={"17px"} />
+              </i>
               <p>
                 <span className={styles.footerMiddle_right_item_text}>آدرس ایمیل:</span>
                 <br />
@@ -44,7 +46,9 @@ const Footer = () => {
               </p>
             </div>
             <div className={`${styles.footerMiddle_right_item} col-5`}>
-              <i className="fa fa-phone" aria-hidden="true"></i>
+              <i>
+                <img src="/assets/images/icons/phoneIcon.svg" alt="phone icon" width={"15px"} />
+              </i>
               <p>
                 <span className={styles.footerMiddle_right_item_text}>شماره تماس:</span>
                 <br />
@@ -52,7 +56,9 @@ const Footer = () => {
               </p>
             </div>
             <div className={`${styles.footerMiddle_right_item} col-12 col-lg-11`}>
-              <i className="fa fa-home" aria-hidden="true"></i>
+              <i>
+                <img src="/assets/images/icons/homeIcon.svg" alt="home address icon" width={"17px"} />
+              </i>
               <p>
                 <span className={styles.footerMiddle_right_item_text}>آدرس دفتر:</span>
                 <br />
@@ -82,29 +88,65 @@ const Footer = () => {
           <div className={styles.footerMiddle_left}>
             <div className={styles.footerMiddle_left_item_left}>
               <div className={styles.footerMiddle_left_item}>
-                <i className="fa fa-chevron-left"></i>
+                <i>
+                  <img
+                    src="/assets/images/lines/left-arrow_yellow.svg"
+                    alt="left arrow icon"
+                    width={"15px"}
+                  />
+                </i>
                 <Link to="/contactUs"> گزارش خرابی سایت </Link>
               </div>
               <div className={styles.footerMiddle_left_item}>
-                <i className="fa fa-chevron-left"></i>
+                <i>
+                  <img
+                    src="/assets/images/lines/left-arrow_yellow.svg"
+                    alt="left arrow icon"
+                    width={"15px"}
+                  />
+                </i>{" "}
                 <Link to="/polls"> نظرسنجی‌ها</Link>
               </div>
               <div className={styles.footerMiddle_left_item}>
-                <i className="fa fa-chevron-left"></i>
+                <i>
+                  <img
+                    src="/assets/images/lines/left-arrow_yellow.svg"
+                    alt="left arrow icon"
+                    width={"15px"}
+                  />
+                </i>{" "}
                 <Link to="/articles"> مقالات</Link>
               </div>
             </div>
             <div className={styles.footerMiddle_left_item_right}>
               <div className={styles.footerMiddle_left_item}>
-                <i className="fa fa-chevron-left"></i>
+                <i>
+                  <img
+                    src="/assets/images/lines/left-arrow_yellow.svg"
+                    alt="left arrow icon"
+                    width={"15px"}
+                  />
+                </i>{" "}
                 <Link to="/aboutUs"> سوالات متدوال</Link>
               </div>
               <div className={styles.footerMiddle_left_item}>
-                <i className="fa fa-chevron-left"></i>
+                <i>
+                  <img
+                    src="/assets/images/lines/left-arrow_yellow.svg"
+                    alt="left arrow icon"
+                    width={"15px"}
+                  />
+                </i>{" "}
                 <Link to="/aboutUs"> دربارۀ ما</Link>
               </div>
               <div className={styles.footerMiddle_left_item}>
-                <i className="fa fa-chevron-left"></i>
+                <i>
+                  <img
+                    src="/assets/images/lines/left-arrow_yellow.svg"
+                    alt="left arrow icon"
+                    width={"15px"}
+                  />
+                </i>{" "}
                 <Link to="/contactUs"> تماس با ما</Link>
               </div>
             </div>

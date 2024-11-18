@@ -5,6 +5,8 @@ import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import moment from "moment-jalaali";
 import AdvForHeader from "../advertisement/AdvForHeader";
+import { useSelector } from "react-redux";
+
 const Header = () => {
   //Converting the Gregorian date to Jalali
   moment.loadPersian({ usePersianDigits: true, dialect: "persian-modern" });
@@ -13,6 +15,8 @@ const Header = () => {
 
   //states
   const [search, setSearch] = useState("");
+  const data = useSelector((state) => state.login);
+  console.log(data);
 
   const searchHandler = (e) => {
     e.preventDefault();
@@ -44,11 +48,15 @@ const Header = () => {
               onChange={(e) => setSearch(e.target.value)}
             />
             <button type="submit">
-              <i className="fa fa-search" aria-hidden="true"></i>
+              <i>
+                <img src="/assets/images/icons/searchIcon_white.svg" alt="search icon" width={"25px"} />
+              </i>
             </button>
           </form>
           <div className={styles.login}>
-            <i className="fa fa-user" aria-hidden="true"></i>
+            <i>
+              <img src="/assets/images/icons/profileIcon_white.svg" alt="search icon" width={"25px"} />
+            </i>
             <Link to="auth/login" className={fontSizes.px13}>
               ورود<span className="text-info">/</span>ثبت‌نام
             </Link>

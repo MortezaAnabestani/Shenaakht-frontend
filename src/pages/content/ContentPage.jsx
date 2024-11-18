@@ -48,7 +48,7 @@ const ContentPage = () => {
       <div className={`${styles.contentListHead} d-flex flex-column align-items-center`}>
         <img
           src={
-            type === "reports" ? "/assets/images/icons/newsPaper.svg" : "/assets/images/icons/title_icon.svg"
+            type === "reports" ? "/assets/images/icons/newsPaper.svg" : "/assets/images/icons/contentIcon.svg"
           }
           alt="an icon for title"
         />

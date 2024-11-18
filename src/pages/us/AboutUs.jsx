@@ -14,7 +14,9 @@ const AboutUs = () => {
         <div className={`${styles.mainContent_landingPage_bottom_item} col-lg-3`}>
           <span className={styles.mainContent_aboutUs_count}>
             <h5>
-              <i className="fa fa-search"></i>
+              <i>
+                <img src="/assets/images/icons/dataIcon.svg" alt="data icon" width={"25px"} />
+              </i>
             </h5>
           </span>
           <h6>گردآوری داده</h6>
@@ -28,7 +30,9 @@ const AboutUs = () => {
         <div className={`${styles.mainContent_landingPage_bottom_item} col-lg-3`}>
           <span className={styles.mainContent_aboutUs_count}>
             <h5>
-              <i className="fa fa-search"></i>
+              <i>
+                <img src="/assets/images/icons/socialIcon.svg" alt="social icon" width={"25px"} />
+              </i>
             </h5>
           </span>
           <h6>پژوهش‌های اجتماعی</h6>
@@ -43,7 +47,9 @@ const AboutUs = () => {
         <div className={`${styles.mainContent_landingPage_bottom_item} col-lg-3`}>
           <span className={styles.mainContent_aboutUs_count}>
             <h5>
-              <i className="fa fa-search"></i>
+              <i>
+                <img src="/assets/images/icons/releaseIcon.svg" alt="release icon" width={"25px"} />
+              </i>
             </h5>
           </span>
           <h6>پردازش و انتشار داده</h6>
@@ -57,7 +63,9 @@ const AboutUs = () => {
       <div className={`${styles.mainContent_landingPage_bottom_item} col-12`}>
         <span className={styles.mainContent_aboutUs_count}>
           <h5>
-            <i className="fa fa-search"></i>
+            <i>
+              <img src="/assets/images/icons/dollorIcon.svg" alt="dollar icon" width={"25px"} />
+            </i>
           </h5>
         </span>
         <h6>تحقیقات بازار</h6>
@@ -73,7 +81,7 @@ const AboutUs = () => {
         </p>
       </div>
       <div className={styles.aboutUs_explain}>
-        <img src="/assets/images/icons/aboutUs_icon.svg" alt="aboutUs icon" />
+        <img src="/assets/images/icons/sunIcon.svg" alt="sun icon" />
         <h6>
           <span style={{ color: "#ffcb05" }}>ضرورت</span> شناخت
         </h6>

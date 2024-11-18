@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
-import Root from "../pages/root/Root";
+import PublicRoot from "../pages/root/PublicRoot.jsx";
+import PrivateRoot from "../pages/root/PrivateRoot";
 import NotFound from "../components/other/NotFound";
 import Home from "../components/home/Home";
 import MarketHome from "../pages/market/MarketHome";
@@ -11,14 +12,20 @@ import AboutUs from "../pages/us/AboutUs";
 import ContactUs from "../pages/us/ContactUs";
 import ContentDetails from "../pages/content/ContentDetails";
 import ContentPage from "../pages/content/ContentPage.jsx";
+import Admin from "../panel/Admin/Admin.jsx";
+import CreateContent from "../panel/Admin/contentManagement/CreateContent.jsx";
+import Main from "../panel/Admin/Main.jsx";
+import Header from "../panel/Admin/Header.jsx";
+import ContentList from "../panel/Admin/contentManagement/ContentList.jsx";
 
 const router = createBrowserRouter([
   {
-    element: <Root />,
+    path: "/",
+    element: <PublicRoot />,
     errorElement: <NotFound />,
     children: [
       {
-        path: "/",
+        path: "",
         element: <Home />,
       },
       {
@@ -56,6 +63,37 @@ const router = createBrowserRouter([
       {
         path: "/contactUs",
         element: <ContactUs />,
+      },
+    ],
+  },
+  {
+    path: "/auth/admin",
+    element: <PrivateRoot />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        path: "",
+        element: <Admin />,
+        children: [
+          {
+            path: "", // Route پیش‌فرض برای /auth/admin
+            element: <Main />,
+            children: [
+              {
+                path: "dashboard",
+                element: <Main />,
+              },
+              {
+                path: "content-management/create",
+                element: <CreateContent />,
+              },
+              {
+                path: "content-management/contents-list",
+                element: <ContentList />,
+              },
+            ],
+          },
+        ],
       },
     ],
   },
