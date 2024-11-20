@@ -23,7 +23,7 @@ const Header = () => {
   };
 
   return (
-    <header>
+    <div className={styles.headerWrapper}>
       <AdvForHeader />
       <div className="container">
         <div className={styles.topHeader}>
@@ -64,7 +64,7 @@ const Header = () => {
         </div>
         <Navbar />
       </div>
-    </header>
+    </div>
   );
 };
 

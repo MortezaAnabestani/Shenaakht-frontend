@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "./Header";
 import { Outlet } from "react-router";
-import CreateContent from "./contentManagement/CreateContent";
 
 const Main = () => {
   return (

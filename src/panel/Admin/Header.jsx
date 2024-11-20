@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <div className={styles.headerWrapper}>
-      <header className="d-flex flex-column-reverse flex-md-row p-2 w-100 bg-light align-items-center justify-content-between">
+      <div className="d-flex flex-column-reverse flex-md-row p-2 w-100 bg-light align-items-center justify-content-between">
         <div className={`${styles.searchWrapper} text-center mt-3 mt-md-0`}>
           <input
             type="text"
@@ -45,7 +45,7 @@ const Header = () => {
             className="cursor-pointer"
           />
         </div>
-      </header>
+      </div>
     </div>
   );
 };

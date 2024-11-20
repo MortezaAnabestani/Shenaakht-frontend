@@ -100,7 +100,7 @@ const Sidebar = ({ menuOpen, setMenuOpen }) => {
                   </div>
                 </li>
               </Link>
-              <li className={`mb-4`} onClick={() => setArrowDown1(!arrowDown1)}>
+              <li className={`mb-4`}>
                 <div
                   className="d-flex cursor-pointer align-items-center p-1 transition-all duration-300"
                   data-bs-toggle="collapse"
@@ -108,6 +108,7 @@ const Sidebar = ({ menuOpen, setMenuOpen }) => {
                   role="button"
                   aria-expanded="false"
                   aria-controls="newsMenu"
+                  onClick={() => setArrowDown1(!arrowDown1)}
                 >
                   <img
                     src="/assets/images/icons/panel/admin/paperIcon.svg"
@@ -151,7 +152,7 @@ const Sidebar = ({ menuOpen, setMenuOpen }) => {
                   </li>
                 </ul>
               </li>
-              <li className={`mb-4`} onClick={() => setArrowDown2(!arrowDown2)}>
+              <li className={`mb-4`}>
                 <div
                   className="d-flex cursor-pointer align-items-center p-1 transition-all duration-300"
                   data-bs-toggle="collapse"
@@ -159,6 +160,7 @@ const Sidebar = ({ menuOpen, setMenuOpen }) => {
                   role="button"
                   aria-expanded="false"
                   aria-controls="userManagement"
+                  onClick={() => setArrowDown2(!arrowDown2)}
                 >
                   <img
                     src="/assets/images/icons/panel/admin/users.svg"

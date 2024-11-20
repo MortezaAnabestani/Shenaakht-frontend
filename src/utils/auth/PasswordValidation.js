@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "../../styles/validation/passwordValidation.module.css";
 
 const PasswordValidation = ({ password }) => {

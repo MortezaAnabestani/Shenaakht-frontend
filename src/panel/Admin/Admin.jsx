@@ -7,7 +7,7 @@ import Loading from "../../components/other/Loading";
 import { Outlet } from "react-router";
 
 const Admin = () => {
-  const [menuOpen, setMenuOpen] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const dispatch = useDispatch();
   const { data, loading, error } = useSelector((state) => state.admin);

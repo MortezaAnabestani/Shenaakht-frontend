@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "../../styles/auth/auth.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import PasswordValidation from "../../validation/auth/PasswordValidation";
+import PasswordValidation from "../../utils/auth/PasswordValidation";
 import { Eye, EyeOff } from "react-feather";
 import { useDispatch, useSelector } from "react-redux";
 import { sendRegisterDataToServer } from "../../features/authSlice/signupSlice";

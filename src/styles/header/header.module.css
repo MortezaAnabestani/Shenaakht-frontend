@@ -1,4 +1,4 @@
-header {
+.headerWrapper {
   width: 100%;
   background-color: #ffcb05;
   padding-bottom: 5px;
@@ -111,7 +111,7 @@ header {
 }
 
 @media only screen and (max-width: 768px) {
-  header {
+  .headerWrapper {
     padding-bottom: 10px;
   }
   .topHeader {

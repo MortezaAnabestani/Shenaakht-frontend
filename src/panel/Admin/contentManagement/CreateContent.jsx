@@ -1,16 +1,69 @@
 import React, { useState } from "react";
 import styles from "../../../styles/panel/admin/admin.module.css";
+import ContentType from "./components/ContentType";
+import CategoryType from "./components/CategoryType";
+import ContentTitle from "./components/ContentTitle";
+import ContentSubTitle from "./components/ContentSubTitle";
+import MainImageUpload from "./components/MainImageUpload";
+import SliderImageHandler from "./components/SliderImageHandler";
+import TextEditor from "./components/TextEditor";
 
 const CreateContent = () => {
   const [title, setTitle] = useState("");
   const [subTitle, setSubTitle] = useState("");
-  const [subTitleshow, setSubTitleshow] = useState(false);
-  const [contentType, setContentType] = useState([]);
-
-  console.log(subTitleshow);
+  const [subTitleshow, setSubTitleshow] = useState(true);
+  const [slidershow, setSliderShow] = useState(true);
+  const [contentType, setContentType] = useState("");
+  const [categoryType, setCategoryType] = useState([]);
+  const [mainImage, setMainImage] = useState("");
+  const [sliderImageUpload, setSliderImageUpload] = useState([]);
+  const [sliderImageLinks, setSliderImageLinks] = useState(["", ""]);
+  const [sliderType, setSliderType] = useState("");
+  const [editorText, setEditorText] = useState("");
+  const [mainImagePreview, setMainImagePreview] = useState(null);
+  const [sliderImagePreviews, setSliderImagePreviews] = useState([]);
 
   const formHandler = (e) => {
     e.preventDefault();
+  };
+
+  const handleEditorChange = (content) => {
+    setEditorText(content);
+    console.log("editor content: ", content);
+  };
+
+  const handleMainImageChange = async (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setMainImagePreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+      setMainImage(file); // ذخیره فایل برای ارسال به سرور
+    } else {
+      setMainImagePreview(null);
+      setMainImage(null);
+    }
+  };
+
+  const handleSliderImageChange = (e) => {
+    const files = Array.from(e.target.files);
+    setSliderImageUpload(files); //ذخیره فایلها برای سرور
+
+    if (files) {
+      const previews = [];
+      files.forEach((file) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          previews.push(reader.result);
+          setSliderImagePreviews([...previews]);
+        };
+        reader.readAsDataURL(file);
+      });
+    } else {
+      setSliderImagePreviews([]);
+    }
   };
 
   return (
@@ -25,77 +78,45 @@ const CreateContent = () => {
         ایجاد محتوای جدید
       </heading>
       <form className={styles.formWrapper} onSubmit={formHandler}>
-        <div className={styles.createContent_type}>
-          <label className="fs-10" htmlFor="contentType">
-            نوع محتوا:
-          </label>
-          <select
-            id="contentType"
-            name="contentType"
-            value={contentType}
-            onChange={(e) => setContentType(e.target.value)}
-            required
-          >
-            <option value={""} disabled>
-              انتخاب نوع محتوا
-            </option>
-            {contentType.map((types) => (
-              <option key={types.name} value={types._id}>
-                {types.name}
-              </option>
-            ))}
-          </select>
-        </div>
+        <ContentType contentType={contentType} setContentType={setContentType} />
+        <CategoryType categoryType={categoryType} setCategoryType={setCategoryType} />
+        <ContentTitle title={title} setTitle={setTitle} />
+        <ContentSubTitle
+          subTitleshow={subTitleshow}
+          setSubTitleshow={setSubTitleshow}
+          subTitle={subTitle}
+          setSubTitle={setSubTitle}
+        />
         <div className={styles.createContent_title}>
           <label className="fs-10" htmlFor="title">
-            عنوان:
+            بدنۀ محتوا:
           </label>
-          <input
-            id="title"
-            name="title"
-            value={title}
-            type="text"
-            onChange={(e) => setTitle(e.target.value)}
-            required
+          <TextEditor
+            placeholder="متن بدنۀ محتوا را این‌جا بنویسید"
+            onChange={handleEditorChange}
+            initialText={""}
           />
         </div>
-        <div>
-          {subTitleshow ? (
-            <div className="d-flex align-items-center">
-              <input
-                className="ms-2"
-                id="subTitleshow"
-                name="subTitleshow"
-                type="checkbox"
-                onClick={() => setSubTitleshow(!subTitleshow)}
-              />
-              <span className="fs-11">می‌خواهم از زیرعنوان استفاده کنم</span>
-            </div>
-          ) : (
-            <div className={`${styles.createContent_title}`}>
-              <label className="fs-11" htmlFor="subTitle">
-                زیر عنوان:
-              </label>
-              <input
-                id="subTitle"
-                name="subTitle"
-                value={subTitle}
-                type="text"
-                onChange={(e) => setSubTitle(e.target.value)}
-              />
-              <span className="d-flex fs-12 align-items-center mt-1 ">
-                <img
-                  className="me-2 ms-1 cursor-pointer"
-                  src="/assets/images/icons/panel/admin/deleteIcon.svg"
-                  alt="delete icon"
-                  width="17px"
-                  onClick={() => setSubTitleshow(!subTitleshow)}
-                />
-                حذف زیرعنوان
-              </span>
-            </div>
-          )}
-        </div>
+
+        <MainImageUpload
+          mainImage={mainImage}
+          setMainImage={setMainImage}
+          setMainImagePreview={setMainImagePreview}
+          handleMainImageChange={handleMainImageChange}
+          mainImagePreview={mainImagePreview}
+        />
+        <SliderImageHandler
+          slidershow={slidershow}
+          setSliderShow={setSliderShow}
+          sliderType={sliderType}
+          setSliderType={setSliderType}
+          sliderImageLinks={sliderImageLinks}
+          setSliderImageLinks={setSliderImageLinks}
+          handleSliderImageChange={handleSliderImageChange}
+          sliderImagePreviews={sliderImagePreviews}
+          setSliderImageUpload={setSliderImageUpload}
+          setSliderImagePreviews={setSliderImagePreviews}
+        />
       </form>
     </div>
   );
