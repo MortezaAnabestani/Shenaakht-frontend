@@ -1,24 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../../styles/auth/auth.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import PasswordValidation from "../../utils/auth/PasswordValidation";
 import { Eye, EyeOff } from "react-feather";
 import { useDispatch, useSelector } from "react-redux";
-import { sendRegisterDataToServer } from "../../features/authSlice/signupSlice";
+import { sendRegisterDataToServer } from "../../services/authAPI";
 import Loading from "../../components/other/Loading";
 import AuthErrorHandler from "../../errorHandler/AuthErorrHandler";
+import {
+  setName,
+  setEmail,
+  setMobile,
+  setPassword,
+  setIsPasswordFocused,
+  setShowPass,
+} from "../../features/authSlice/signupSlice";
 
 const Signup = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [password, setPassword] = useState("");
-  const [isPasswordFocused, setIsPasswordFocused] = useState(false);
-  const [showPass, setShowPass] = useState(false);
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { data, loading, error } = useSelector((state) => state.register);
+  const { name, email, mobile, password, isPasswordFocused, showPass, data, loading, error } = useSelector(
+    (state) => state.register
+  );
 
   const registerHandler = async (e) => {
     e.preventDefault();
@@ -63,7 +66,7 @@ const Signup = () => {
                     className="form-control"
                     name="name"
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => dispatch(setName(e.target.value))}
                     placeholder="محمدرضا شجریان"
                     required
                   />
@@ -80,7 +83,7 @@ const Signup = () => {
                     placeholder="mohamadreza_shajarian@gmail.com"
                     required
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => dispatch(setEmail(e.target.value))}
                   />
                 </div>
 
@@ -96,7 +99,7 @@ const Signup = () => {
                     placeholder="۰۹۱۵۱۲۳۴۵۶۷"
                     required
                     value={mobile}
-                    onChange={(e) => setMobile(e.target.value)}
+                    onChange={(e) => dispatch(setMobile(e.target.value))}
                   />
                 </div>
                 <div className={`form-group mb-2 position-relative ${styles.leftInput}`}>
@@ -111,18 +114,18 @@ const Signup = () => {
                     placeholder="mo@Sh1319"
                     required
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => dispatch(setPassword(e.target.value))}
                     onKeyDown={() => {
-                      setIsPasswordFocused(true);
+                      dispatch(setIsPasswordFocused(true));
                     }}
                     onMouseOut={() => {
-                      setIsPasswordFocused(false);
+                      dispatch(setIsPasswordFocused(false));
                     }}
                   />
                   <span
                     className="position-absolute end-0 top-50 me-3"
                     onClick={() => {
-                      setShowPass(!showPass);
+                      dispatch(setShowPass(!showPass));
                     }}
                     style={{ cursor: "pointer" }}
                   >

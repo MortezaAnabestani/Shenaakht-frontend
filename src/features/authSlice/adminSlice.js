@@ -1,21 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-
-const basicUrl = "http://localhost:8080/";
-
-export const fetchAdminData = createAsyncThunk("adminData/fetchAdminData", async (_, { rejectWithValue }) => {
-  try {
-    const response = await axios.get(`${basicUrl}api/isAuth`, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      withCredentials: true,
-    });
-    return response.data;
-  } catch (error) {
-    return rejectWithValue(error.response.data);
-  }
-});
+import { createSlice } from "@reduxjs/toolkit";
+import { fetchAdminData } from "../../services/authAPI";
 
 const adminDataSlice = createSlice({
   name: "adminData",

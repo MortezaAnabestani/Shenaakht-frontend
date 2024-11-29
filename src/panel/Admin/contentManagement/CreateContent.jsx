@@ -1,74 +1,61 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../../../styles/panel/admin/admin.module.css";
 import ContentType from "./components/ContentType";
-import CategoryType from "./components/CategoryType";
+import Category from "./components/Category";
 import ContentTitle from "./components/ContentTitle";
 import ContentSubTitle from "./components/ContentSubTitle";
 import MainImageUpload from "./components/MainImageUpload";
 import SliderImageHandler from "./components/SliderImageHandler";
-import TextEditor from "./components/TextEditor";
+import ContentTags from "./components/ContentTags";
+import { useDispatch, useSelector } from "react-redux";
+import { sendNewContent } from "../../../services/contentAPI";
+import { setEditorContent } from "../../../features/contents/createContentSlice";
+import PersianEditor from "./components/PersianEditor";
 
 const CreateContent = () => {
-  const [title, setTitle] = useState("");
-  const [subTitle, setSubTitle] = useState("");
-  const [subTitleshow, setSubTitleshow] = useState(true);
-  const [slidershow, setSliderShow] = useState(true);
-  const [contentType, setContentType] = useState("");
-  const [categoryType, setCategoryType] = useState([]);
-  const [mainImage, setMainImage] = useState("");
-  const [sliderImageUpload, setSliderImageUpload] = useState([]);
-  const [sliderImageLinks, setSliderImageLinks] = useState(["", ""]);
-  const [sliderType, setSliderType] = useState("");
-  const [editorText, setEditorText] = useState("");
-  const [mainImagePreview, setMainImagePreview] = useState(null);
-  const [sliderImagePreviews, setSliderImagePreviews] = useState([]);
+  const dispatch = useDispatch();
+  const {
+    contentType,
+    categoryType,
+    title,
+    subTitle,
+    editorContent,
+    mainImage,
+    sliderImageUpload,
+    sliderImageLinks,
+    selectedTags,
+  } = useSelector((state) => state.createContent);
 
   const formHandler = (e) => {
     e.preventDefault();
-  };
-
-  const handleEditorChange = (content) => {
-    setEditorText(content);
-    console.log("editor content: ", content);
-  };
-
-  const handleMainImageChange = async (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setMainImagePreview(reader.result);
-      };
-      reader.readAsDataURL(file);
-      setMainImage(file); // ذخیره فایل برای ارسال به سرور
-    } else {
-      setMainImagePreview(null);
-      setMainImage(null);
+    const newContent = new FormData();
+    newContent.append("contentType", contentType);
+    newContent.append("categoryType", categoryType);
+    newContent.append("title", title);
+    newContent.append("subTitle", subTitle || "");
+    newContent.append("editorContent", editorContent);
+    if (mainImage.file) {
+      newContent.append("mainImage", mainImage.file);
     }
-  };
-
-  const handleSliderImageChange = (e) => {
-    const files = Array.from(e.target.files);
-    setSliderImageUpload(files); //ذخیره فایلها برای سرور
-
-    if (files) {
-      const previews = [];
-      files.forEach((file) => {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          previews.push(reader.result);
-          setSliderImagePreviews([...previews]);
-        };
-        reader.readAsDataURL(file);
+    if (sliderImageUpload && sliderImageUpload.length > 0) {
+      sliderImageUpload.forEach((image) => {
+        if (image && image.file) {
+          newContent.append("sliderImages", image.file);
+        }
       });
-    } else {
-      setSliderImagePreviews([]);
     }
+    if (sliderImageLinks && sliderImageLinks.length > 0) {
+      sliderImageLinks.forEach((link) => {
+        newContent.append("sliderImageLinks", link);
+      });
+    }
+    newContent.append("selectedTags", selectedTags);
+    dispatch(sendNewContent(newContent));
   };
 
   return (
     <div className={styles.createContentWrapper}>
-      <heading>
+      <div>
         <img
           className="ms-2 mb-1"
           src="/assets/images/icons/panel/admin/penIcon.svg"
@@ -76,47 +63,24 @@ const CreateContent = () => {
           width={"20px"}
         />
         ایجاد محتوای جدید
-      </heading>
+      </div>
       <form className={styles.formWrapper} onSubmit={formHandler}>
-        <ContentType contentType={contentType} setContentType={setContentType} />
-        <CategoryType categoryType={categoryType} setCategoryType={setCategoryType} />
-        <ContentTitle title={title} setTitle={setTitle} />
-        <ContentSubTitle
-          subTitleshow={subTitleshow}
-          setSubTitleshow={setSubTitleshow}
-          subTitle={subTitle}
-          setSubTitle={setSubTitle}
-        />
+        <ContentType contentType={contentType} />
+        <Category categoryType={categoryType} />
+        <ContentTitle title={title} />
+        <ContentSubTitle subTitle={subTitle} />
         <div className={styles.createContent_title}>
           <label className="fs-10" htmlFor="title">
             بدنۀ محتوا:
           </label>
-          <TextEditor
-            placeholder="متن بدنۀ محتوا را این‌جا بنویسید"
-            onChange={handleEditorChange}
-            initialText={""}
-          />
+          <PersianEditor editorContent={editorContent} setEditorContent={setEditorContent} />
         </div>
-
-        <MainImageUpload
-          mainImage={mainImage}
-          setMainImage={setMainImage}
-          setMainImagePreview={setMainImagePreview}
-          handleMainImageChange={handleMainImageChange}
-          mainImagePreview={mainImagePreview}
-        />
-        <SliderImageHandler
-          slidershow={slidershow}
-          setSliderShow={setSliderShow}
-          sliderType={sliderType}
-          setSliderType={setSliderType}
-          sliderImageLinks={sliderImageLinks}
-          setSliderImageLinks={setSliderImageLinks}
-          handleSliderImageChange={handleSliderImageChange}
-          sliderImagePreviews={sliderImagePreviews}
-          setSliderImageUpload={setSliderImageUpload}
-          setSliderImagePreviews={setSliderImagePreviews}
-        />
+        <MainImageUpload mainImage={mainImage} />
+        <SliderImageHandler sliderImageLinks={sliderImageLinks} sliderImageUpload={sliderImageUpload} />
+        <ContentTags selectedTags={selectedTags} />
+        <button className="btn btn-success w-100 mt-2" type="submit">
+          ارسال محتوای جدید
+        </button>
       </form>
     </div>
   );

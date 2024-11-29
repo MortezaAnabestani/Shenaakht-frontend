@@ -1,20 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../../styles/auth/auth.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "react-feather";
 import Loading from "../../components/other/Loading";
 import { useDispatch, useSelector } from "react-redux";
-import { sendLoginDataToServer } from "../../features/authSlice/loginSlice";
+import { sendLoginDataToServer } from "../../services/authAPI";
 import AuthErrorHandler from "../../errorHandler/AuthErorrHandler";
+import { setEmail, setPassword, setShowPass } from "../../features/authSlice/loginSlice";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { data, loading, error } = useSelector((state) => state.login);
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPass, setShowPass] = useState(false);
+  const { email, password, showPass, data, loading, error } = useSelector((state) => state.login);
 
   const loginHandler = async (e) => {
     e.preventDefault();
@@ -61,7 +58,7 @@ const Login = () => {
                     name="email"
                     autoComplete="email"
                     onChange={(e) => {
-                      setEmail(e.target.value);
+                      dispatch(setEmail(e.target.value));
                     }}
                     dir="ltr"
                     required
@@ -78,7 +75,7 @@ const Login = () => {
                     value={password}
                     name="password"
                     onChange={(e) => {
-                      setPassword(e.target.value);
+                      dispatch(setPassword(e.target.value));
                     }}
                     dir="ltr"
                     required
@@ -86,7 +83,7 @@ const Login = () => {
                   <span
                     className="position-absolute end-0 top-50 me-3"
                     onClick={() => {
-                      setShowPass(!showPass);
+                      dispatch(setShowPass(!showPass));
                     }}
                     style={{ cursor: "pointer" }}
                   >

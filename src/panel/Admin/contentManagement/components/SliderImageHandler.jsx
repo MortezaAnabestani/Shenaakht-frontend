@@ -1,32 +1,56 @@
 import React from "react";
 import styles from "../../../../styles/panel/admin/admin.module.css";
-
-const SliderImageHandler = ({
-  slidershow,
+import { useDispatch, useSelector } from "react-redux";
+import {
   setSliderShow,
-  sliderType,
   setSliderType,
-  sliderImageLinks,
   setSliderImageLinks,
-  handleSliderImageChange,
-  sliderImagePreviews,
   setSliderImageUpload,
   setSliderImagePreviews,
-}) => {
+} from "../../../../features/contents/createContentSlice";
+
+const SliderImageHandler = ({ sliderImageLinks, sliderImageUpload }) => {
+  const dispatch = useDispatch();
+  const { slidershow, sliderType, sliderImagePreviews } = useSelector((state) => state.createContent);
+
   const handleSliderLinkChange = (index, value) => {
     const updatedLinks = [...sliderImageLinks];
     updatedLinks[index] = value;
-    setSliderImageLinks(updatedLinks);
+    dispatch(setSliderImageLinks(updatedLinks));
   };
 
   const addSliderLinkInput = () => {
-    setSliderImageLinks([...sliderImageLinks, ""]);
+    dispatch(setSliderImageLinks([...sliderImageLinks, ""]));
   };
 
   const removeSliderLinkInput = (index) => {
     const updatedLinks = [...sliderImageLinks];
     updatedLinks.splice(index, 1);
-    setSliderImageLinks(updatedLinks);
+    dispatch(setSliderImageLinks(updatedLinks));
+  };
+
+  const handleSliderImageChange = (e) => {
+    const files = Array.from(e.target.files);
+    dispatch(setSliderImageUpload(files)); //ذخیره فایلها برای سرور
+
+    if (files) {
+      const previews = [];
+      const filesWithPreview = []; // Array to store both file and data URL
+
+      files.forEach((file) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          previews.push(reader.result);
+          filesWithPreview.push({ file, dataUrl: reader.result }); // Store both
+          dispatch(setSliderImagePreviews([...previews]));
+          dispatch(setSliderImageUpload([...filesWithPreview])); // Dispatch the array with both details
+        };
+        reader.readAsDataURL(file);
+      });
+    } else {
+      dispatch(setSliderImagePreviews([]));
+      dispatch(setSliderImageUpload([])); // Clear uploads if no files selected
+    }
   };
 
   return (
@@ -38,7 +62,7 @@ const SliderImageHandler = ({
             className="ms-2 cursor-pointer btn p-1 btn-sm btn-outline-info rounded-5"
             id="subTitleshow"
             name="subTitleshow"
-            onClick={() => setSliderShow(!slidershow)}
+            onClick={() => dispatch(setSliderShow(!slidershow))}
             alt="close icon"
             width={"25px"}
           />
@@ -51,7 +75,7 @@ const SliderImageHandler = ({
             className="cursor-pointer bg-light"
             name="sliderType"
             value={sliderType}
-            onChange={(e) => setSliderType(e.target.value)}
+            onChange={(e) => dispatch(setSliderType(e.target.value))}
           >
             <option value="" disabled>
               انتخاب نوع گالری
@@ -71,11 +95,11 @@ const SliderImageHandler = ({
                 onChange={handleSliderImageChange}
                 accept="image/*"
                 required
-                className="btn btn-success"
+                className="btn btn-secondary"
                 multiple="true"
               />
               <div className="w-100 d-flex flex-column flex-md-row align-items-center align-items-md-start justify-content-around gap-4 flex-wrap mt-3">
-                {sliderImagePreviews &&
+                {Array.isArray(sliderImagePreviews) && sliderImagePreviews.length > 0 ? (
                   sliderImagePreviews.map((preview, index) => (
                     <div className={styles.imageCard}>
                       <span className="d-flex fs-12 align-items-center mt-1 ">
@@ -85,8 +109,10 @@ const SliderImageHandler = ({
                           alt="delete icon"
                           width="18px"
                           onClick={() => {
-                            setSliderImageUpload((prev) => prev.filter((_, i) => i !== index));
-                            setSliderImagePreviews((prev) => prev.filter((_, i) => i !== index));
+                            const updatedUploads = sliderImageUpload.filter((_, i) => i !== index);
+                            const updatedPreviews = sliderImagePreviews.filter((_, i) => i !== index);
+                            dispatch(setSliderImageUpload(updatedUploads));
+                            dispatch(setSliderImagePreviews(updatedPreviews));
                           }}
                         />
                       </span>
@@ -97,7 +123,10 @@ const SliderImageHandler = ({
                         style={{ width: "250px", height: "250px", objectFit: "cover", margin: "5px" }}
                       />
                     </div>
-                  ))}
+                  ))
+                ) : (
+                  <p className="text-muted fs-11">هنوز عکسی انتخاب نشده است</p> // or no message at all
+                )}
               </div>
             </div>
           )}
@@ -133,22 +162,19 @@ const SliderImageHandler = ({
               </button>
             </div>
           )}
-          {sliderImagePreviews ||
-            (sliderImageLinks && (
-              <span className="d-flex fs-12 align-items-center mt-1 ">
-                <img
-                  className="me-2 ms-1 cursor-pointer"
-                  src="/assets/images/icons/panel/admin/deleteIcon.svg"
-                  alt="delete icon"
-                  width="18px"
-                  onClick={() => {
-                    setSliderImagePreviews(null);
-                    setSliderShow(!slidershow);
-                  }}
-                />
-                حذف اسلایدر
-              </span>
-            ))}
+          <span className="d-flex fs-12 align-items-center mt-1 ">
+            <img
+              className="me-2 ms-1 cursor-pointer"
+              src="/assets/images/icons/panel/admin/deleteIcon.svg"
+              alt="delete icon"
+              width="18px"
+              onClick={() => {
+                dispatch(setSliderImagePreviews(null));
+                dispatch(setSliderShow(!slidershow));
+              }}
+            />
+            حذف اسلایدر
+          </span>
         </div>
       )}
     </>

@@ -1,28 +1,39 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-
-const basicUrl = "http://localhost:8080/";
-
-export const sendRegisterDataToServer = createAsyncThunk(
-  `registerData/sendRegisterDataToServer`,
-  async (data, { rejectWithValue }) => {
-    try {
-      const response = await axios.post(`${basicUrl}api/register`, data);
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error.response.data);
-    }
-  }
-);
+import { createSlice } from "@reduxjs/toolkit";
+import { sendRegisterDataToServer } from "../../services/authAPI";
 
 const registerDataSlice = createSlice({
   name: "registerData",
   initialState: {
+    name: "",
+    email: "",
+    mobile: "",
+    password: "",
+    isPasswordFocused: false,
+    showPass: false,
     data: null,
     loading: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    setName: (state, action) => {
+      state.name = action.payload;
+    },
+    setEmail: (state, action) => {
+      state.email = action.payload;
+    },
+    setMobile: (state, action) => {
+      state.mobile = action.payload;
+    },
+    setPassword: (state, action) => {
+      state.password = action.payload;
+    },
+    setIsPasswordFocused: (state, action) => {
+      state.isPasswordFocused = action.payload;
+    },
+    setShowPass: (state, action) => {
+      state.showPass = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(sendRegisterDataToServer.pending, (state) => {
@@ -38,5 +49,8 @@ const registerDataSlice = createSlice({
       });
   },
 });
+
+export const { setName, setEmail, setMobile, setPassword, setIsPasswordFocused, setShowPass } =
+  registerDataSlice.actions;
 
 export default registerDataSlice.reducer;

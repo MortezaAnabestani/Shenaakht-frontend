@@ -1,33 +1,27 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-
-const basicUrl = "http://localhost:8080/";
-
-export const sendLoginDataToServer = createAsyncThunk(
-  "loginData/sendLoginDataTpServer",
-  async (data, { rejectWithValue }) => {
-    try {
-      const response = await axios.post(`${basicUrl}api/login`, data, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      });
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error.response.data);
-    }
-  }
-);
+import { createSlice } from "@reduxjs/toolkit";
+import { sendLoginDataToServer } from "../../services/authAPI";
 
 const loginDataSlice = createSlice({
   name: "loginData",
   initialState: {
+    email: "",
+    password: "",
+    showPass: false,
     data: null,
     loading: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    setEmail: (state, action) => {
+      state.email = action.payload;
+    },
+    setPassword: (state, action) => {
+      state.password = action.payload;
+    },
+    setShowPass: (state, action) => {
+      state.showPass = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(sendLoginDataToServer.pending, (state) => {
@@ -43,5 +37,7 @@ const loginDataSlice = createSlice({
       });
   },
 });
+
+export const { setEmail, setPassword, setShowPass } = loginDataSlice.actions;
 
 export default loginDataSlice.reducer;

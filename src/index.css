@@ -175,8 +175,12 @@ input:hover {
 }
 
 /* text editor */
-.ql-toolbar {
-  direction: ltr !important;
+.tox-tinymce {
+  border-radius: 7px !important;
+}
+
+.tox-statusbar__branding {
+  display: none;
 }
 
 @media only screen and (max-width: 768px) {

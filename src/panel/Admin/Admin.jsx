@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/panel/admin/admin.module.css";
 import Sidebar from "./Sidebar";
-import { fetchAdminData } from "../../features/authSlice/adminSlice";
+import { fetchAdminData } from "../../services/authAPI";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../../components/other/Loading";
 import { Outlet } from "react-router";

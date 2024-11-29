@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../../../styles/panel/admin/admin.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchContentTypes } from "../../../../services/contentAPI";
+import { setContentType } from "../../../../features/contents/createContentSlice";
 
-const ContentType = ({ contentType, setContentType }) => {
-  const contentTypeNames = [
-    { _id: 1, name: "article", persianName: "مقاله" },
-    { _id: 2, name: "poll", persianName: "نظرسنجی" },
-    { _id: 3, name: "data", persianName: "داده‌های آماری" },
-    { _id: 4, name: "news", persianName: "خبر" },
-  ];
+const ContentType = ({ contentType }) => {
+  const dispatch = useDispatch();
+  const { dataContentType, loadingContentType, errorContentType } = useSelector(
+    (state) => state.createContent
+  );
+
+  useEffect(() => {
+    dispatch(fetchContentTypes());
+  }, [dispatch]);
 
   return (
     <div className={styles.createContent_title}>
@@ -19,15 +24,15 @@ const ContentType = ({ contentType, setContentType }) => {
         className="cursor-pointer"
         name="contentType"
         value={contentType}
-        onChange={(e) => setContentType(e.target.value)}
+        onChange={(e) => dispatch(setContentType(e.target.value))}
         required
       >
         <option value={""} disabled>
           انتخاب نوع محتوا
         </option>
-        {contentTypeNames?.map((type) => (
-          <option key={type._id} value={type.name}>
-            {type.persianName}
+        {dataContentType?.map((type) => (
+          <option key={type._id} value={type._id}>
+            {type.name}
           </option>
         ))}
       </select>

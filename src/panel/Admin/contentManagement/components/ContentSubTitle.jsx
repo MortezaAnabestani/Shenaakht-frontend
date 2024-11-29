@@ -1,7 +1,12 @@
 import React from "react";
 import styles from "../../../../styles/panel/admin/admin.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { setSubTitleshow, setSubTitle } from "../../../../features/contents/createContentSlice";
 
-const ContentSubTitle = ({ subTitleshow, setSubTitleshow, subTitle, setSubTitle }) => {
+const ContentSubTitle = ({ subTitle }) => {
+  const dispatch = useDispatch();
+  const { subTitleshow } = useSelector((state) => state.createContent);
+
   return (
     <>
       {subTitleshow ? (
@@ -11,7 +16,7 @@ const ContentSubTitle = ({ subTitleshow, setSubTitleshow, subTitle, setSubTitle 
             className="ms-2 cursor-pointer btn p-1 btn-sm btn-outline-info rounded-5"
             id="subTitleshow"
             name="subTitleshow"
-            onClick={() => setSubTitleshow(!subTitleshow)}
+            onClick={() => dispatch(setSubTitleshow(!subTitleshow))}
             alt="close icon"
             width={"25px"}
           />
@@ -27,7 +32,7 @@ const ContentSubTitle = ({ subTitleshow, setSubTitleshow, subTitle, setSubTitle 
             name="subTitle"
             value={subTitle}
             type="text"
-            onChange={(e) => setSubTitle(e.target.value)}
+            onChange={(e) => dispatch(setSubTitle(e.target.value))}
           />
           <span className="d-flex fs-12 align-items-center mt-1 ">
             <img
@@ -35,7 +40,7 @@ const ContentSubTitle = ({ subTitleshow, setSubTitleshow, subTitle, setSubTitle 
               src="/assets/images/icons/panel/admin/deleteIcon.svg"
               alt="delete icon"
               width="18px"
-              onClick={() => setSubTitleshow(!subTitleshow)}
+              onClick={() => dispatch(setSubTitleshow(!subTitleshow))}
             />
             حذف زیرعنوان
           </span>
