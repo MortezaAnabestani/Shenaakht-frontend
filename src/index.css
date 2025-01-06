@@ -1,24 +1,24 @@
 @font-face {
   font-family: vazir;
   font-weight: 500;
-  src: url(../public/assets/fonts/Vazir.ttf);
+  src: url(assets/fonts/Vazir.ttf);
 }
 
 @font-face {
   font-family: vazir;
   font-weight: bold;
-  src: url(../public/assets/fonts/Vazir-Bold.ttf);
+  src: url(assets/fonts/Vazir-Bold.ttf);
 }
 
 @font-face {
   font-family: vazir;
   font-weight: lighter;
-  src: url(../public/assets/fonts/Vazir-Thin.ttf);
+  src: url(assets/fonts/Vazir-Thin.ttf);
 }
 
 @font-face {
   font-family: Vazirmatn;
-  src: url("../public/assets/fonts/Vazirmatn-FD.ttf") format("woff2");
+  src: url(assets/fonts/Vazirmatn-FD.ttf) format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
