@@ -80,7 +80,7 @@ const CreateContent = () => {
       <div>
         <img
           className="ms-2 mb-1"
-          src="/assets/images/icons/panel/admin/penIcon.svg"
+          src="assets/images/icons/panel/admin/penIcon.svg"
           alt="pencil icon"
           width={"20px"}
         />

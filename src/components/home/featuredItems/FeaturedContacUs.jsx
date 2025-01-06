@@ -35,7 +35,7 @@ const FeaturedContacUs = () => {
         </div>
       </div>
       <div className={styles.aboutUs_left}>
-        <img src="/assets/images/photo/aboutUsHome.png" alt="about us" />
+        <img src="assets/images/photo/aboutUsHome.png" alt="about us" />
       </div>
     </div>
   );

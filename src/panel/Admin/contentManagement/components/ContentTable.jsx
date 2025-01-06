@@ -62,7 +62,7 @@ const ContentTable = ({ data, onPageChange, currentPage }) => {
               onChange={(e) => dispatch(setSearchTerm(e.target.value))}
             />
             <img
-              src="/assets/images/icons/searchIcon.svg"
+              src="assets/images/icons/searchIcon.svg"
               alt="search icon"
               width={"20px"}
               className={`position-absolute mt-0 ${searchTerm && styles.arrowIcon}`}
@@ -106,13 +106,13 @@ const ContentTable = ({ data, onPageChange, currentPage }) => {
                   <td>
                     <div className="d-flex justify-content-center gap-2">
                       <Link to={`/auth/admin/content-management/edit/${item._id}`} className=" fs-11">
-                        <img src="/assets/images/icons/editIcon_golden.svg" alt="edit icon" width={"20px"} />
+                        <img src="assets/images/icons/editIcon_golden.svg" alt="edit icon" width={"20px"} />
                       </Link>
                       <button
                         onClick={() => handleDelete(item._id)}
                         className="border-0 bg-transparent fs-11"
                       >
-                        <img src="/assets/images/icons/deleteIcon.svg" alt="delete icon" width={"20px"} />
+                        <img src="assets/images/icons/deleteIcon.svg" alt="delete icon" width={"20px"} />
                       </button>
                     </div>
                   </td>

@@ -32,19 +32,19 @@ const HeroSlider = () => {
       </div>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img src="/assets/images/heroSliders/pollbanner1.png" className="d-block w-100" alt="pollbanner1" />
+          <img src="assets/images/heroSliders/pollbanner1.png" className="d-block w-100" alt="pollbanner1" />
           <div className="carousel-caption d-none d-md-block">
             <h5 className="mb-0 text-dark">First slide label</h5>
           </div>
         </div>
         <div className="carousel-item">
-          <img src="/assets/images/heroSliders/pollbanner2.png" className="d-block w-100" alt="pollbanner2" />
+          <img src="assets/images/heroSliders/pollbanner2.png" className="d-block w-100" alt="pollbanner2" />
           <div className="carousel-caption d-none d-md-block">
             <h5 className="mb-0 text-dark">Second slide label</h5>
           </div>
         </div>
         <div className="carousel-item">
-          <img src="/assets/images/heroSliders/pollbanner3.png" className="d-block w-100" alt="pollbanner3" />
+          <img src="assets/images/heroSliders/pollbanner3.png" className="d-block w-100" alt="pollbanner3" />
           <div className="carousel-caption d-none d-md-block">
             <h5 className="mb-0 text-dark">Third slide label</h5>
           </div>

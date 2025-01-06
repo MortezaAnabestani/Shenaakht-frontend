@@ -37,7 +37,7 @@ const ContentList = () => {
         <div className="text-center">
           <img
             className="ms-2 mb-1"
-            src="/assets/images/icons/panel/admin/listIcon.svg"
+            src="assets/images/icons/panel/admin/listIcon.svg"
             alt="pencil icon"
             width={"20px"}
           />

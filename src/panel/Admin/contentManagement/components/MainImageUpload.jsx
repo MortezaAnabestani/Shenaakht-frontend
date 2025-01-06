@@ -57,7 +57,7 @@ const MainImageUpload = ({ mainImage, setFormData }) => {
         <span className="d-flex fs-12 align-items-center mt-1">
           <img
             className="me-2 ms-1 cursor-pointer"
-            src="/assets/images/icons/panel/admin/deleteIcon.svg"
+            src="assets/images/icons/panel/admin/deleteIcon.svg"
             alt="delete icon"
             width="18px"
             onClick={() => {

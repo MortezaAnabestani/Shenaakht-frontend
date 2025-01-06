@@ -16,7 +16,7 @@ const Sidebar = ({ menuOpen, setMenuOpen }) => {
         <div className="d-flex flex-column gap-1">
           {!menuOpen && (
             <img
-              src="/assets/images/shenaakht_logo/logoBottom.png"
+              src="assets/images/shenaakht_logo/logoBottom.png"
               className="m-1 pt-1"
               width="28px"
               alt="logo"
@@ -25,7 +25,7 @@ const Sidebar = ({ menuOpen, setMenuOpen }) => {
           <img
             style={{ rotate: `${menuOpen ? "-90deg" : "90deg"}` }}
             className={`cursor-pointer ${menuOpen ? styles.arrowIcon : ""}`}
-            src="/assets/images/icons/panel/admin/downArrow.svg"
+            src="assets/images/icons/panel/admin/downArrow.svg"
             alt="burger icon"
             width="35px"
           />
@@ -33,37 +33,37 @@ const Sidebar = ({ menuOpen, setMenuOpen }) => {
         <div className="d-flex flex-column align-items-center justify-content-center mb-5 gap-4 ps-2">
           <img
             className={menuOpen ? "d-none" : styles.arrowIcon}
-            src="/assets/images/icons/panel/admin/paperIcon.svg"
+            src="assets/images/icons/panel/admin/paperIcon.svg"
             alt="burger icon"
             width="30px"
           />
           <img
             className={menuOpen ? "d-none" : styles.arrowIcon}
-            src="/assets/images/icons/panel/admin/users.svg"
+            src="assets/images/icons/panel/admin/users.svg"
             alt="burger icon"
             width="30px"
           />
           <img
             className={menuOpen ? "d-none" : styles.arrowIcon}
-            src="/assets/images/icons/panel/admin/analytics.svg"
+            src="assets/images/icons/panel/admin/analytics.svg"
             alt="burger icon"
             width="30px"
           />
           <img
             className={menuOpen ? "d-none" : styles.arrowIcon}
-            src="/assets/images/icons/panel/admin/notificationIcon.svg"
+            src="assets/images/icons/panel/admin/notificationIcon.svg"
             alt="burger icon"
             width="30px"
           />
           <img
             className={menuOpen ? "d-none" : styles.arrowIcon}
-            src="/assets/images/icons/panel/admin/setingsIcon.svg"
+            src="assets/images/icons/panel/admin/setingsIcon.svg"
             alt="burger icon"
             width="30px"
           />
           <img
             className={menuOpen ? "d-none" : styles.arrowIcon}
-            src="/assets/images/icons/panel/admin/helpIcon.svg"
+            src="assets/images/icons/panel/admin/helpIcon.svg"
             alt="burger icon"
             width="30px"
           />
@@ -74,7 +74,7 @@ const Sidebar = ({ menuOpen, setMenuOpen }) => {
           <div className="d-flex align-items-center justify-content-center flex-wrap gap-2 pt-4 ms-3">
             <Link to="/">
               <img
-                src="/assets/images/shenaakht_logo/logoBottom.png"
+                src="assets/images/shenaakht_logo/logoBottom.png"
                 className="ms-2 mb-1"
                 width="50px"
                 alt="logo"
@@ -91,7 +91,7 @@ const Sidebar = ({ menuOpen, setMenuOpen }) => {
                 <li className={`mb-4`}>
                   <div className="d-flex cursor-pointer align-items-center p-1">
                     <img
-                      src="/assets/images/icons/panel/admin/panelIcon.svg"
+                      src="assets/images/icons/panel/admin/panelIcon.svg"
                       className="ms-2"
                       alt="news icon"
                       width="25px"
@@ -111,14 +111,14 @@ const Sidebar = ({ menuOpen, setMenuOpen }) => {
                   onClick={() => setArrowDown1(!arrowDown1)}
                 >
                   <img
-                    src="/assets/images/icons/panel/admin/paperIcon.svg"
+                    src="assets/images/icons/panel/admin/paperIcon.svg"
                     className="ms-2"
                     alt="news icon"
                     width="25px"
                   />
                   <span>مدیریت محتوا</span>
                   <img
-                    src="/assets/images/icons/panel/admin/downArrow.svg"
+                    src="assets/images/icons/panel/admin/downArrow.svg"
                     className="me-2"
                     alt="down arrow"
                     width="20px"
@@ -163,14 +163,14 @@ const Sidebar = ({ menuOpen, setMenuOpen }) => {
                   onClick={() => setArrowDown2(!arrowDown2)}
                 >
                   <img
-                    src="/assets/images/icons/panel/admin/users.svg"
+                    src="assets/images/icons/panel/admin/users.svg"
                     className="ms-2"
                     alt="news icon"
                     width="25px"
                   />
                   <span>مدیریت کاربران</span>
                   <img
-                    src="/assets/images/icons/panel/admin/downArrow.svg"
+                    src="assets/images/icons/panel/admin/downArrow.svg"
                     className="me-2"
                     alt="down arrow"
                     width="20px"
@@ -201,7 +201,7 @@ const Sidebar = ({ menuOpen, setMenuOpen }) => {
                   aria-controls="analytics"
                 >
                   <img
-                    src="/assets/images/icons/panel/admin/analytics.svg"
+                    src="assets/images/icons/panel/admin/analytics.svg"
                     className="ms-2"
                     alt="news icon"
                     width="25px"
@@ -219,7 +219,7 @@ const Sidebar = ({ menuOpen, setMenuOpen }) => {
                   aria-controls="notification"
                 >
                   <img
-                    src="/assets/images/icons/panel/admin/notificationIcon.svg"
+                    src="assets/images/icons/panel/admin/notificationIcon.svg"
                     className="ms-2"
                     alt="news icon"
                     width="25px"
@@ -237,7 +237,7 @@ const Sidebar = ({ menuOpen, setMenuOpen }) => {
                   aria-controls="setings"
                 >
                   <img
-                    src="/assets/images/icons/panel/admin/setingsIcon.svg"
+                    src="assets/images/icons/panel/admin/setingsIcon.svg"
                     className="ms-2"
                     alt="news icon"
                     width="25px"
@@ -255,7 +255,7 @@ const Sidebar = ({ menuOpen, setMenuOpen }) => {
                   aria-controls="help"
                 >
                   <img
-                    src="/assets/images/icons/panel/admin/helpIcon.svg"
+                    src="assets/images/icons/panel/admin/helpIcon.svg"
                     className="ms-2"
                     alt="news icon"
                     width="25px"

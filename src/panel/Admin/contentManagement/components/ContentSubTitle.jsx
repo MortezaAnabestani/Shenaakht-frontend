@@ -21,7 +21,7 @@ const ContentSubTitle = ({ subTitle, setFormData }) => {
       {subTitleshow ? (
         <div className="d-flex align-items-center me-1 mb-3">
           <img
-            src="/assets/images/icons/panel/admin/arrowTurnLeftDown.svg"
+            src="assets/images/icons/panel/admin/arrowTurnLeftDown.svg"
             className="ms-2 cursor-pointer btn p-1 btn-sm btn-outline-info rounded-5"
             id="subTitleshow"
             name="subTitleshow"
@@ -46,7 +46,7 @@ const ContentSubTitle = ({ subTitle, setFormData }) => {
           <span className="d-flex fs-12 align-items-center mt-1 ">
             <img
               className="me-2 ms-1 cursor-pointer"
-              src="/assets/images/icons/panel/admin/deleteIcon.svg"
+              src="assets/images/icons/panel/admin/deleteIcon.svg"
               alt="delete icon"
               width="18px"
               onClick={closeSubTitleHandler}
