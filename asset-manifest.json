@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/MortezaAnabestani/Shenaakht-frontend.git/static/css/main.4c3d130c.css",
+    "main.js": "/MortezaAnabestani/Shenaakht-frontend.git/static/js/main.7f72bace.js",
+    "static/media/Vazirmatn-FD.ttf": "/MortezaAnabestani/Shenaakht-frontend.git/static/media/Vazirmatn-FD.62631f804aaf7a2a1843.ttf",
+    "static/media/Vazir-Bold.ttf": "/MortezaAnabestani/Shenaakht-frontend.git/static/media/Vazir-Bold.aa78d4003ca9ce547f9f.ttf",
+    "static/media/Vazir-Thin.ttf": "/MortezaAnabestani/Shenaakht-frontend.git/static/media/Vazir-Thin.2ae361f4698a58aeb9da.ttf",
+    "static/media/Vazir.ttf": "/MortezaAnabestani/Shenaakht-frontend.git/static/media/Vazir.83fea749de20816026b1.ttf",
+    "index.html": "/MortezaAnabestani/Shenaakht-frontend.git/index.html",
+    "static/media/wall-heroColume.svg": "/MortezaAnabestani/Shenaakht-frontend.git/static/media/wall-heroColume.b5b440ac83b8780c81e3.svg",
+    "static/media/navbarIcon.svg": "/MortezaAnabestani/Shenaakht-frontend.git/static/media/navbarIcon.69b7e02629751f4e8435.svg",
+    "main.4c3d130c.css.map": "/MortezaAnabestani/Shenaakht-frontend.git/static/css/main.4c3d130c.css.map",
+    "main.7f72bace.js.map": "/MortezaAnabestani/Shenaakht-frontend.git/static/js/main.7f72bace.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4c3d130c.css",
+    "static/js/main.7f72bace.js"
+  ]
+}
