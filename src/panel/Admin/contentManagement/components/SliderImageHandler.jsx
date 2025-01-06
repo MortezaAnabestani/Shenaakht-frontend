@@ -1,56 +1,74 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../../../styles/panel/admin/admin.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setSliderShow,
   setSliderType,
-  setSliderImageLinks,
-  setSliderImageUpload,
   setSliderImagePreviews,
 } from "../../../../features/contents/createContentSlice";
 
-const SliderImageHandler = ({ sliderImageLinks, sliderImageUpload }) => {
+const SliderImageHandler = ({ sliderImageLinks, sliderImages, setFormData }) => {
   const dispatch = useDispatch();
   const { slidershow, sliderType, sliderImagePreviews } = useSelector((state) => state.createContent);
+  const [sliderImageFiles, setSliderImageFiles] = useState([]);
 
   const handleSliderLinkChange = (index, value) => {
     const updatedLinks = [...sliderImageLinks];
     updatedLinks[index] = value;
-    dispatch(setSliderImageLinks(updatedLinks));
+    setFormData((prevState) => ({
+      ...prevState,
+      sliderImageLinks: updatedLinks,
+    }));
   };
 
   const addSliderLinkInput = () => {
-    dispatch(setSliderImageLinks([...sliderImageLinks, ""]));
+    setFormData((prevState) => ({
+      ...prevState,
+      sliderImageLinks: [...sliderImageLinks, ""],
+    }));
   };
 
   const removeSliderLinkInput = (index) => {
     const updatedLinks = [...sliderImageLinks];
     updatedLinks.splice(index, 1);
-    dispatch(setSliderImageLinks(updatedLinks));
+    setFormData((prevState) => ({
+      ...prevState,
+      sliderImageLinks: updatedLinks,
+    }));
   };
 
   const handleSliderImageChange = (e) => {
     const files = Array.from(e.target.files);
-    dispatch(setSliderImageUpload(files)); //ذخیره فایلها برای سرور
+    setSliderImageFiles(files);
 
-    if (files) {
-      const previews = [];
-      const filesWithPreview = []; // Array to store both file and data URL
-
-      files.forEach((file) => {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          previews.push(reader.result);
-          filesWithPreview.push({ file, dataUrl: reader.result }); // Store both
-          dispatch(setSliderImagePreviews([...previews]));
-          dispatch(setSliderImageUpload([...filesWithPreview])); // Dispatch the array with both details
-        };
-        reader.readAsDataURL(file);
-      });
-    } else {
-      dispatch(setSliderImagePreviews([]));
-      dispatch(setSliderImageUpload([])); // Clear uploads if no files selected
+    if (files && files.length > 0) {
+      const previews = files.map((file) => URL.createObjectURL(file));
+      dispatch(setSliderImagePreviews(previews));
     }
+  };
+
+  useEffect(() => {
+    (sliderImageLinks || sliderImages) && dispatch(setSliderShow(false));
+  }, [sliderImageLinks, sliderImages, dispatch]);
+
+  const updateHandler = (index) => {
+    const updatedFiles = sliderImageFiles.filter((_, i) => i !== index);
+    setSliderImageFiles(updatedFiles);
+
+    const updatedPreviews = sliderImagePreviews.filter((_, i) => i !== index);
+    dispatch(setSliderImagePreviews(updatedPreviews));
+  };
+
+  const closeHandler = () => {
+    dispatch(setSliderImagePreviews(null));
+    dispatch(setSliderShow(!slidershow));
+    setFormData((prevState) => ({
+      ...prevState,
+      sliderImageLinks: [],
+      sliderImages: [],
+    }));
+    setSliderImageFiles([]);
+    dispatch(setSliderType(""));
   };
 
   return (
@@ -85,7 +103,7 @@ const SliderImageHandler = ({ sliderImageLinks, sliderImageUpload }) => {
           </select>
           {sliderType === "uploadImage" && (
             <div className={styles.createContent_title}>
-              <label for="" className="fs-10">
+              <label htmlFor="" className="fs-10">
                 انتخاب عکس‌های اسلایدر
               </label>
               <input
@@ -108,18 +126,15 @@ const SliderImageHandler = ({ sliderImageLinks, sliderImageUpload }) => {
                           src="/assets/images/icons/panel/admin/deleteIcon2.svg"
                           alt="delete icon"
                           width="18px"
-                          onClick={() => {
-                            const updatedUploads = sliderImageUpload.filter((_, i) => i !== index);
-                            const updatedPreviews = sliderImagePreviews.filter((_, i) => i !== index);
-                            dispatch(setSliderImageUpload(updatedUploads));
-                            dispatch(setSliderImagePreviews(updatedPreviews));
-                          }}
+                          onClick={() => updateHandler(index)}
+                          loading="lazy"
                         />
                       </span>
                       <img
                         key={index}
                         src={preview}
                         alt={`preview-${index}`}
+                        loading="lazy"
                         style={{ width: "250px", height: "250px", objectFit: "cover", margin: "5px" }}
                       />
                     </div>
@@ -153,6 +168,7 @@ const SliderImageHandler = ({ sliderImageLinks, sliderImageUpload }) => {
                       src="/assets/images/icons/panel/admin/deleteIcon.svg"
                       alt="delete icon"
                       width="18px"
+                      loading="lazy"
                     />
                   </button>
                 </div>
@@ -168,10 +184,8 @@ const SliderImageHandler = ({ sliderImageLinks, sliderImageUpload }) => {
               src="/assets/images/icons/panel/admin/deleteIcon.svg"
               alt="delete icon"
               width="18px"
-              onClick={() => {
-                dispatch(setSliderImagePreviews(null));
-                dispatch(setSliderShow(!slidershow));
-              }}
+              onClick={closeHandler}
+              loading="lazy"
             />
             حذف اسلایدر
           </span>

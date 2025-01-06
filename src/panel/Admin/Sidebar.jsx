@@ -87,7 +87,7 @@ const Sidebar = ({ menuOpen, setMenuOpen }) => {
           </div>
           <nav className="pt-5">
             <ul className="list-unstyled">
-              <Link to="dashboard">
+              <Link to="/auth/admin">
                 <li className={`mb-4`}>
                   <div className="d-flex cursor-pointer align-items-center p-1">
                     <img
@@ -134,7 +134,7 @@ const Sidebar = ({ menuOpen, setMenuOpen }) => {
                   </li>
                   <li className="mt-2 p-1 transition-all duration-300">
                     <Link to="content-management/contents-list" className="text-light fs-8 transition-all">
-                      لیست محتواها
+                      فهرست محتواها
                     </Link>
                   </li>
                   <li className="mt-2 p-1 transition-all duration-300">
@@ -147,7 +147,7 @@ const Sidebar = ({ menuOpen, setMenuOpen }) => {
                   </li>
                   <li className="mt-2 p-1 transition-all duration-300">
                     <Link to="content-management/manage-tag" className="text-light fs-8 transition-all">
-                      مدیریت تگ‌ها
+                      مدیریت برچسب‌ها
                     </Link>
                   </li>
                 </ul>

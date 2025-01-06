@@ -16,8 +16,6 @@ const Admin = () => {
     dispatch(fetchAdminData());
   }, [dispatch]);
 
-  console.log(data?.userid);
-
   return (
     <div className={`${styles.dashboardWrapper} ${menuOpen ? "d-flex flex-column flex-md-row" : "flex-row"}`}>
       {loading && <Loading />}

@@ -1,9 +1,8 @@
 import React from "react";
 import styles from "../../../../styles/panel/admin/admin.module.css";
 import { useDispatch } from "react-redux";
-import { setTitle } from "../../../../features/contents/createContentSlice";
 
-const ContentTitle = ({ title }) => {
+const ContentTitle = ({ title, setFormData }) => {
   const dispatch = useDispatch();
 
   return (
@@ -16,7 +15,7 @@ const ContentTitle = ({ title }) => {
         name="title"
         value={title}
         type="text"
-        onChange={(e) => dispatch(setTitle(e.target.value))}
+        onChange={(e) => dispatch(setFormData({ title: e.target.value }))}
         required
       />
     </div>

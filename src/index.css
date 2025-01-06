@@ -183,6 +183,14 @@ input:hover {
   display: none;
 }
 
+/* background color */
+.bg-shenaakht_color1 {
+  background-color: #ffca21;
+}
+
+.bg-shenaakht_color2 {
+  background-color: #383838;
+}
 @media only screen and (max-width: 768px) {
   /* sliders setings */
   .splide__arrow {

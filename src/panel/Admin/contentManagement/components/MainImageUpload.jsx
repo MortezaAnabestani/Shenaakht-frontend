@@ -1,30 +1,35 @@
 import styles from "../../../../styles/panel/admin/admin.module.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setMainImage, setMainImagePreview } from "../../../../features/contents/createContentSlice";
+import { setMainImagePreview } from "../../../../features/contents/createContentSlice";
 
-const MainImageUpload = ({ mainImage }) => {
+const MainImageUpload = ({ mainImage, setFormData }) => {
   const dispatch = useDispatch();
   const { mainImagePreview } = useSelector((state) => state.createContent);
 
+  useEffect(() => {
+    // اگر تصویر از سرور دریافت شده باشد
+    if (mainImage && mainImage?.dataUrl) {
+      dispatch(setMainImagePreview(mainImage?.dataUrl)); // blob URL
+    }
+  }, [mainImage, dispatch]);
+
   const handleMainImageChange = async (e) => {
     const file = e.target.files[0];
+
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        dispatch(setMainImagePreview(reader.result));
-        dispatch(setMainImage({ file, dataUrl: reader.result }));
-      };
-      reader.readAsDataURL(file);
-    } else {
-      dispatch(setMainImagePreview(null));
-      dispatch(setMainImage(null));
+      const urlFile = URL.createObjectURL(file);
+      dispatch(setMainImagePreview(urlFile));
+      console.log("file: >", file.name);
+      dispatch(setFormData({ mainImage: file.name }));
     }
   };
 
+  const imagePreviewURL = mainImagePreview?.payload || mainImagePreview;
+
   return (
     <div className={styles.createContent_title}>
-      <label htmlFor="" className="fs-10">
+      <label htmlFor="file" className="fs-10">
         انتخاب عکس اصلی
       </label>
       <input
@@ -37,10 +42,10 @@ const MainImageUpload = ({ mainImage }) => {
         className="btn btn-secondary"
         multiple={false}
       />
-      {mainImagePreview ? (
+      {imagePreviewURL ? (
         <div className={`pt-4 pb-4 w-100 d-flex align-items-center justify-content-center`}>
           <img
-            src={mainImagePreview}
+            src={imagePreviewURL}
             alt="پیش‌نمایش تصویر اصلی"
             style={{ width: "300px", height: "300px", objectFit: "cover" }}
           />
@@ -48,7 +53,7 @@ const MainImageUpload = ({ mainImage }) => {
       ) : (
         <p className="text-center pt-3 text-muted fs-11">هنوز عکسی انتخاب نشده است</p>
       )}
-      {mainImage && (
+      {imagePreviewURL && (
         <span className="d-flex fs-12 align-items-center mt-1">
           <img
             className="me-2 ms-1 cursor-pointer"
@@ -56,7 +61,7 @@ const MainImageUpload = ({ mainImage }) => {
             alt="delete icon"
             width="18px"
             onClick={() => {
-              dispatch({ file: null, dataUrl: null });
+              dispatch(setFormData({ mainImage: { file: null, dataUrl: null } }));
               dispatch(setMainImagePreview(null));
             }}
           />

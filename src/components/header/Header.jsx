@@ -16,7 +16,6 @@ const Header = () => {
   //states
   const [search, setSearch] = useState("");
   const data = useSelector((state) => state.login);
-  console.log(data);
 
   const searchHandler = (e) => {
     e.preventDefault();

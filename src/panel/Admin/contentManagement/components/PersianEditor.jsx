@@ -1,7 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
-const PersianEditor = ({ editorContent, setEditorContent }) => {
+import { useLocation } from "react-router-dom";
+
+const PersianEditor = ({ editorText, setFormData }) => {
   const dispatch = useDispatch();
+  const editorRef = useRef(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/create") {
+      dispatch(setFormData({ editorText: "" }));
+    } else {
+      dispatch(setFormData({ editorText: editorText }));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (editorRef.current && editorText !== editorRef.current.getContent()) {
+      editorRef.current.setContent(editorText || "");
+    }
+  }, [editorText, editorRef.current]);
+
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "/persian-tinymce/tinymce.min.js";
@@ -18,13 +37,19 @@ const PersianEditor = ({ editorContent, setEditorContent }) => {
             "insertdatetime media table paste code help wordcount",
             "emoticons hr autosave",
           ],
+
           toolbar:
             "undo redo | image link emoticons hr | formatselect | bold italic underline forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat print restoredraft wordcount code",
           autosave_interval: "10s",
           autosave_prefix: "tinymce-autosave-{path}{query}-{id}-",
           setup: (editor) => {
+            editorRef.current = editor;
+            editor.on("init", () => {
+              editor.setContent(editorText);
+            });
             editor.on("change", () => {
-              dispatch(setEditorContent(editor.getContent()));
+              const content = editor.getContent();
+              dispatch(setFormData({ editorText: content }));
             });
           },
         });
@@ -33,8 +58,8 @@ const PersianEditor = ({ editorContent, setEditorContent }) => {
     document.body.appendChild(script);
 
     return () => {
-      if (window.tinymce) {
-        window.tinymce.remove();
+      if (window.tinymce && editorRef.current) {
+        window.tinymce.remove(editorRef.current);
       }
     };
   }, []);

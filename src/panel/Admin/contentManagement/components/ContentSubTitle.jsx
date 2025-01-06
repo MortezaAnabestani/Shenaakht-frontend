@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "../../../../styles/panel/admin/admin.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { setSubTitleshow, setSubTitle } from "../../../../features/contents/createContentSlice";
+import { setSubTitleshow } from "../../../../features/contents/createContentSlice";
 
-const ContentSubTitle = ({ subTitle }) => {
+const ContentSubTitle = ({ subTitle, setFormData }) => {
   const dispatch = useDispatch();
   const { subTitleshow } = useSelector((state) => state.createContent);
+
+  const closeSubTitleHandler = () => {
+    dispatch(setFormData({ subTitle: "" }));
+    dispatch(setSubTitleshow(!subTitleshow));
+  };
+
+  useEffect(() => {
+    subTitle && dispatch(setSubTitleshow(false));
+  }, [subTitle]);
 
   return (
     <>
@@ -32,7 +41,7 @@ const ContentSubTitle = ({ subTitle }) => {
             name="subTitle"
             value={subTitle}
             type="text"
-            onChange={(e) => dispatch(setSubTitle(e.target.value))}
+            onChange={(e) => dispatch(setFormData({ subTitle: e.target.value }))}
           />
           <span className="d-flex fs-12 align-items-center mt-1 ">
             <img
@@ -40,7 +49,7 @@ const ContentSubTitle = ({ subTitle }) => {
               src="/assets/images/icons/panel/admin/deleteIcon.svg"
               alt="delete icon"
               width="18px"
-              onClick={() => dispatch(setSubTitleshow(!subTitleshow))}
+              onClick={closeSubTitleHandler}
             />
             حذف زیرعنوان
           </span>

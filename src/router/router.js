@@ -76,7 +76,7 @@ const router = createBrowserRouter([
         element: <Admin />,
         children: [
           {
-            path: "", // Route پیش‌فرض برای /auth/admin
+            path: "",
             element: <Main />,
             children: [
               {
@@ -85,6 +85,10 @@ const router = createBrowserRouter([
               },
               {
                 path: "content-management/create",
+                element: <CreateContent />,
+              },
+              {
+                path: "content-management/edit/:id",
                 element: <CreateContent />,
               },
               {

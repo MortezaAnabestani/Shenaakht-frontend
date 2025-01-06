@@ -2,29 +2,28 @@ import React, { useEffect, useState } from "react";
 import styles from "../../../../styles/panel/admin/admin.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories } from "../../../../services/contentAPI";
-import { setCategoryType } from "../../../../features/contents/createContentSlice";
 import Loading from "../../../../components/other/Loading";
 
-const CategoryType = ({ categoryType }) => {
+const Category = ({ categories, setFormData }) => {
   const dispatch = useDispatch();
-  const { dataCategory, loadingCategory, errorCategory } = useSelector((state) => state.createContent);
+  const { dataCategory, loadingCategory, errorCategory } = useSelector((state) => state.readContent);
 
   useEffect(() => {
     dispatch(fetchCategories());
-  }, []);
+  }, [categories]);
 
   return (
     <div className={styles.createContent_title}>
-      {loadingCategory && <Loading />}
-      <label className="fs-10" htmlFor="categoryType">
+      <label className="fs-10 mb-0" htmlFor="categories">
         دسته‌بندی محتوا:
       </label>
+      {loadingCategory && <Loading />}
       <select
-        id="categoryType"
+        id="categories"
         className="cursor-pointer"
-        name="categoryType"
-        value={categoryType}
-        onChange={(e) => dispatch(setCategoryType(e.target.value))}
+        name="categories"
+        value={categories ? categories : ""}
+        onChange={(e) => dispatch(setFormData({ categories: e.target.value }))}
         required
       >
         <option value={""} disabled>
@@ -41,4 +40,4 @@ const CategoryType = ({ categoryType }) => {
   );
 };
 
-export default CategoryType;
+export default Category;

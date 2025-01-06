@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from "react";
-import styles from "../../../../styles/panel/admin/admin.module.css";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContentTypes } from "../../../../services/contentAPI";
-import { setContentType } from "../../../../features/contents/createContentSlice";
+import styles from "../../../../styles/panel/admin/admin.module.css";
 
-const ContentType = ({ contentType }) => {
+const ContentType = ({ contentType, setFormData }) => {
   const dispatch = useDispatch();
-  const { dataContentType, loadingContentType, errorContentType } = useSelector(
-    (state) => state.createContent
-  );
+  const { dataContentType } = useSelector((state) => state.readContent);
 
   useEffect(() => {
     dispatch(fetchContentTypes());
@@ -16,15 +13,15 @@ const ContentType = ({ contentType }) => {
 
   return (
     <div className={styles.createContent_title}>
-      <label className="fs-10" htmlFor="contentType">
+      <label className="fs-10 mb-0" htmlFor="contentType">
         نوع محتوا:
       </label>
       <select
         id="contentType"
         className="cursor-pointer"
         name="contentType"
-        value={contentType}
-        onChange={(e) => dispatch(setContentType(e.target.value))}
+        value={contentType ? contentType : ""}
+        onChange={(e) => dispatch(setFormData({ contentType: e.target.value }))}
         required
       >
         <option value={""} disabled>
