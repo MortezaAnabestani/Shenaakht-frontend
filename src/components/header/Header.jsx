@@ -30,7 +30,7 @@ const Header = () => {
             <Link to="/">
               <img
                 className={styles.logoImage}
-                src="assets/images/shenaakht_logo/logoSide.png"
+                src="/assets/images/shenaakht_logo/logoSide.png"
                 alt="logo_shenaakht"
               ></img>
             </Link>
@@ -48,13 +48,13 @@ const Header = () => {
             />
             <button type="submit">
               <i>
-                <img src="assets/images/icons/searchIcon_white.svg" alt="search icon" width={"25px"} />
+                <img src="/assets/images/icons/searchIcon_white.svg" alt="search icon" width={"25px"} />
               </i>
             </button>
           </form>
           <div className={styles.login}>
             <i>
-              <img src="assets/images/icons/profileIcon_white.svg" alt="search icon" width={"25px"} />
+              <img src="/assets/images/icons/profileIcon_white.svg" alt="search icon" width={"25px"} />
             </i>
             <Link to="auth/login" className={fontSizes.px13}>
               ورود<span className="text-info">/</span>ثبت‌نام

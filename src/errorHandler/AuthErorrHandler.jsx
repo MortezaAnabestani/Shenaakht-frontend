@@ -11,7 +11,7 @@ const AuthErrorHandler = ({ error }) => {
                 <span>
                   <img
                     className="ms-1"
-                    src="assets/images/icons/warning_icon.png"
+                    src="/assets/images/icons/warning_icon.png"
                     alt="warning icon"
                     width="18px"
                   />
@@ -26,7 +26,7 @@ const AuthErrorHandler = ({ error }) => {
             <span>
               <img
                 className="ms-1"
-                src="assets/images/icons/warning_icon.png"
+                src="/assets/images/icons/warning_icon.png"
                 alt="warning icon"
                 width="18px"
               />

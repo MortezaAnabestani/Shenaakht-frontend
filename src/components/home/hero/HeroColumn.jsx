@@ -23,7 +23,7 @@ const HeroColumn = () => {
       </Link>
       <p className={`${fontSizes.px12} fw-bold text-center mt-3`}>
         <span className="ps-1">
-          <img src="assets/images/heroSliders/blueDot/blueDot1.gif" alt="blue dot" width={"15px"} />
+          <img src="/assets/images/heroSliders/blueDot/blueDot1.gif" alt="blue dot" width={"15px"} />
         </span>
         نخستین دیوار تخصصی نیازمندی‌ها و ارائۀ خدمات پژوهشی اجتماعی
       </p>
@@ -34,7 +34,7 @@ const HeroColumn = () => {
               <Link key={index} to={`/merket/${index}`}>
                 <div className={`${fontSizes.px10} ${styles.tickerItem}`} key={index}>
                   <span className={`me-1 mb-4`}>
-                    <img src="assets/images/icons/profile.png" width={"35px"} alt="profile" />
+                    <img src="/assets/images/icons/profile.png" width={"35px"} alt="profile" />
                   </span>
                   <p>{item.substring(0, 200)}...</p>
                 </div>

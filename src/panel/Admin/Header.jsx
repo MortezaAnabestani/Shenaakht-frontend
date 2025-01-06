@@ -19,27 +19,27 @@ const Header = () => {
           />
           <img
             className="cursor-pointer"
-            src="assets/images/icons/searchIcon.svg"
+            src="/assets/images/icons/searchIcon.svg"
             alt="search icon"
             width={"25px"}
           />
         </div>
         <div className={`${styles.notificationWrapper} d-flex justify-content-between align-items-center`}>
           <img
-            src="assets/images/icons/panel/admin/notificationIcon_black.svg"
+            src="/assets/images/icons/panel/admin/notificationIcon_black.svg"
             alt="notification icon"
             width={"25px"}
             className="cursor-pointer"
           />
           <img
-            src="assets/images/icons/panel/admin/messagesIcon.svg"
+            src="/assets/images/icons/panel/admin/messagesIcon.svg"
             alt="notification icon"
             width={"25px"}
             className="cursor-pointer"
           />
           <span>{persianTime}</span>
           <img
-            src="assets/images/icons/profileIcon.svg"
+            src="/assets/images/icons/profileIcon.svg"
             alt="notification icon"
             width={"25px"}
             className="cursor-pointer"

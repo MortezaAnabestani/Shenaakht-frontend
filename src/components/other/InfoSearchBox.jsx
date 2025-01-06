@@ -38,7 +38,11 @@ const InfoSearchBox = () => {
                   <option value="all">محیط‌زیست</option>
                   <option value="all">اینفوگرافی</option>
                 </select>
-                <img src="assets/images/lines/down-arrow.svg" alt="down arrow" className={styles.downArrow} />
+                <img
+                  src="/assets/images/lines/down-arrow.svg"
+                  alt="down arrow"
+                  className={styles.downArrow}
+                />
               </div>
               <div className="d-flex justify-content-between align-items-center">
                 <span className="mt-4 d-flex" style={{ fontSize: "10px" }}>

@@ -9,7 +9,7 @@ const ModalAlert = ({ confirmDelete, setShowModal }) => {
       <div className="modal-dialog modal-dialog-centered" role="document">
         <div className="modal-content">
           <div className="modal-header d-flex align-items-center justify-content-center bg-warning">
-            <img src="assets/images/icons/trashIconAnimated.gif" alt="trash icon" width="120px" />
+            <img src="/assets/images/icons/trashIconAnimated.gif" alt="trash icon" width="120px" />
           </div>
           <div className="modal-body text-center">
             <p>آیا از حذف این محتوا مطمئنید؟</p>

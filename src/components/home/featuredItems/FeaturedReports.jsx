@@ -10,11 +10,11 @@ const FeaturedReports = ({ testContent }) => {
   return (
     <div className={`col-12 col-md-3 d-flex flex-column ${styles.reportBodyWrapper}`}>
       <div className={sub_Styles.homeSectionsHead}>
-        <img src="assets/images/lines/barline.svg" alt="brline" style={{ width: "22%" }} />
+        <img src="/assets/images/lines/barline.svg" alt="brline" style={{ width: "22%" }} />
         <h6>
           <Link to={"/reports"}>پیشخوان اخبار</Link>
         </h6>
-        <img src="assets/images/lines/barline.svg" alt="brline" style={{ width: "22%" }} />
+        <img src="/assets/images/lines/barline.svg" alt="brline" style={{ width: "22%" }} />
       </div>
       <div className={`column ${styles.reportBody} mt-2`}>
         <div className="col-12 p-0">

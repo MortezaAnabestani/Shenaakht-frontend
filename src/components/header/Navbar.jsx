@@ -28,7 +28,7 @@ const Navbar = () => {
             <li className={`nav-item ${styles.navItem} active`}>
               <NavLink className="nav-link rounded-2" aria-current="page" to="/market">
                 <span className="ps-1">
-                  <img src="assets/images/heroSliders/blueDot/blueDot1.gif" alt="blue dot" width={"12px"} />
+                  <img src="/assets/images/heroSliders/blueDot/blueDot1.gif" alt="blue dot" width={"12px"} />
                 </span>
                 شناخت‌بازار
               </NavLink>

@@ -5,7 +5,7 @@ const AboutUs = () => {
   return (
     <div className="container">
       <div className={styles.baner}>
-        <img src="assets/images/photo/iranSociety.jpg" alt="about us" />
+        <img src="/assets/images/photo/iranSociety.jpg" alt="about us" />
         <div className={styles.banerTitle}>
           <h6>اهالی شناخت...</h6>
         </div>
@@ -15,7 +15,7 @@ const AboutUs = () => {
           <span className={styles.mainContent_aboutUs_count}>
             <h5>
               <i>
-                <img src="assets/images/icons/dataIcon.svg" alt="data icon" width={"25px"} />
+                <img src="/assets/images/icons/dataIcon.svg" alt="data icon" width={"25px"} />
               </i>
             </h5>
           </span>
@@ -26,12 +26,12 @@ const AboutUs = () => {
             تحولات پیش‌روی جامعه را در حوزه‌های گوناگون پیش‌بینی کند.
           </p>
         </div>
-        <img className="d-none d-lg-block" src="assets/images/lines/verticalLine.svg" alt="vertical line" />
+        <img className="d-none d-lg-block" src="/assets/images/lines/verticalLine.svg" alt="vertical line" />
         <div className={`${styles.mainContent_landingPage_bottom_item} col-lg-3`}>
           <span className={styles.mainContent_aboutUs_count}>
             <h5>
               <i>
-                <img src="assets/images/icons/socialIcon.svg" alt="social icon" width={"25px"} />
+                <img src="/assets/images/icons/socialIcon.svg" alt="social icon" width={"25px"} />
               </i>
             </h5>
           </span>
@@ -43,12 +43,12 @@ const AboutUs = () => {
             سازمان نیاز دارند به طور مستمر ابعاد مختلف حیات اجتماعی و تغییرات آن را پیش چشم داشته باشند.
           </p>
         </div>
-        <img className="d-none d-lg-block" src="assets/images/lines/verticalLine.svg" alt="vertical line" />
+        <img className="d-none d-lg-block" src="/assets/images/lines/verticalLine.svg" alt="vertical line" />
         <div className={`${styles.mainContent_landingPage_bottom_item} col-lg-3`}>
           <span className={styles.mainContent_aboutUs_count}>
             <h5>
               <i>
-                <img src="assets/images/icons/releaseIcon.svg" alt="release icon" width={"25px"} />
+                <img src="/assets/images/icons/releaseIcon.svg" alt="release icon" width={"25px"} />
               </i>
             </h5>
           </span>
@@ -64,7 +64,7 @@ const AboutUs = () => {
         <span className={styles.mainContent_aboutUs_count}>
           <h5>
             <i>
-              <img src="assets/images/icons/dollorIcon.svg" alt="dollar icon" width={"25px"} />
+              <img src="/assets/images/icons/dollorIcon.svg" alt="dollar icon" width={"25px"} />
             </i>
           </h5>
         </span>
@@ -81,7 +81,7 @@ const AboutUs = () => {
         </p>
       </div>
       <div className={styles.aboutUs_explain}>
-        <img src="assets/images/icons/sunIcon.svg" alt="sun icon" />
+        <img src="/assets/images/icons/sunIcon.svg" alt="sun icon" />
         <h6>
           <span style={{ color: "#ffcb05" }}>ضرورت</span> شناخت
         </h6>

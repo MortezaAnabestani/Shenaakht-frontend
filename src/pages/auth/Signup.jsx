@@ -155,7 +155,7 @@ const Signup = () => {
               <div className={`form-group mt-2 mb-1 text-center ${styles.lastElementLogin}`}>
                 <span className="d-flex align-items-center">
                   <label>اهل شناختم</label>
-                  <img src="assets/images/lines/left-arrow1.svg" alt="left arrow icon" />
+                  <img src="/assets/images/lines/left-arrow1.svg" alt="left arrow icon" />
                   <Link to="/auth/login">صفحۀ ورود</Link>
                 </span>
               </div>

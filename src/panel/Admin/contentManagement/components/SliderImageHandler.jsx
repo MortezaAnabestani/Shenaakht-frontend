@@ -76,7 +76,7 @@ const SliderImageHandler = ({ sliderImageLinks, sliderImages, setFormData }) => 
       {slidershow ? (
         <div className="d-flex align-items-center me-1">
           <img
-            src="assets/images/icons/panel/admin/arrowLeftDouble.svg"
+            src="/assets/images/icons/panel/admin/arrowLeftDouble.svg"
             className="ms-2 cursor-pointer btn p-1 btn-sm btn-outline-info rounded-5"
             id="subTitleshow"
             name="subTitleshow"
@@ -123,7 +123,7 @@ const SliderImageHandler = ({ sliderImageLinks, sliderImages, setFormData }) => 
                       <span className="d-flex fs-12 align-items-center mt-1 ">
                         <img
                           className="me-2 ms-1 cursor-pointer"
-                          src="assets/images/icons/panel/admin/deleteIcon2.svg"
+                          src="/assets/images/icons/panel/admin/deleteIcon2.svg"
                           alt="delete icon"
                           width="18px"
                           onClick={() => updateHandler(index)}
@@ -165,7 +165,7 @@ const SliderImageHandler = ({ sliderImageLinks, sliderImages, setFormData }) => 
                   >
                     <img
                       className="me-2 ms-1 cursor-pointer"
-                      src="assets/images/icons/panel/admin/deleteIcon.svg"
+                      src="/assets/images/icons/panel/admin/deleteIcon.svg"
                       alt="delete icon"
                       width="18px"
                       loading="lazy"
@@ -181,7 +181,7 @@ const SliderImageHandler = ({ sliderImageLinks, sliderImages, setFormData }) => 
           <span className="d-flex fs-12 align-items-center mt-1 ">
             <img
               className="me-2 ms-1 cursor-pointer"
-              src="assets/images/icons/panel/admin/deleteIcon.svg"
+              src="/assets/images/icons/panel/admin/deleteIcon.svg"
               alt="delete icon"
               width="18px"
               onClick={closeHandler}

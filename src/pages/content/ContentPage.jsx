@@ -25,7 +25,7 @@ const ContentPage = () => {
 
   const renderReports = () => (
     <div className={sub_styles.reportsWrapper}>
-      <img src="assets/images/icons/attachment.png" alt="attachment icon" />
+      <img src="/assets/images/icons/attachment.png" alt="attachment icon" />
       <ul>
         {testContent?.map((report, index) => (
           <ReportsCard report={report} key={index} />
@@ -48,7 +48,7 @@ const ContentPage = () => {
       <div className={`${styles.contentListHead} d-flex flex-column align-items-center`}>
         <img
           src={
-            type === "reports" ? "assets/images/icons/newsPaper.svg" : "assets/images/icons/contentIcon.svg"
+            type === "reports" ? "/assets/images/icons/newsPaper.svg" : "/assets/images/icons/contentIcon.svg"
           }
           alt="an icon for title"
         />

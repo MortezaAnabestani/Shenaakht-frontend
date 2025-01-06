@@ -97,7 +97,7 @@ const Login = () => {
                 {error && <AuthErrorHandler error={error} />}
                 <div className={`form-group mb-2 ${styles.forgottenLink}`}>
                   <Link to="/auth/password/reset">یادم تو را فراموش؟</Link>
-                  <img src="assets/images/icons/forgotten.png" alt="icon for forgotten password" />
+                  <img src="/assets/images/icons/forgotten.png" alt="icon for forgotten password" />
                 </div>
                 <div className="form-group mb-4">ریکپچا</div>
                 <div className="form-group mb-5 d-flex align-items-center justify-content-center">
@@ -116,7 +116,7 @@ const Login = () => {
               <div className={`form-group mt-1 mb-1 text-center ${styles.lastElementLogin}`}>
                 <span className="d-flex align-items-center">
                   <label>نه‌شناختی؟</label>
-                  <img src="assets/images/lines/left-arrow1.svg" alt="left arrow icon" />
+                  <img src="/assets/images/lines/left-arrow1.svg" alt="left arrow icon" />
                   <Link to="/auth/register">به ما بپیوندید</Link>
                 </span>
               </div>
