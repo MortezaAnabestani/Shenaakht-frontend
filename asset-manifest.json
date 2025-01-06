@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/MortezaAnabestani/Shenaakht-frontend/static/css/main.b63dfc13.css",
-    "main.js": "/MortezaAnabestani/Shenaakht-frontend/static/js/main.4f673236.js",
-    "static/media/Vazirmatn-FD.ttf": "/MortezaAnabestani/Shenaakht-frontend/static/media/Vazirmatn-FD.62631f804aaf7a2a1843.ttf",
-    "static/media/Vazir-Bold.ttf": "/MortezaAnabestani/Shenaakht-frontend/static/media/Vazir-Bold.aa78d4003ca9ce547f9f.ttf",
-    "static/media/Vazir-Thin.ttf": "/MortezaAnabestani/Shenaakht-frontend/static/media/Vazir-Thin.2ae361f4698a58aeb9da.ttf",
-    "static/media/Vazir.ttf": "/MortezaAnabestani/Shenaakht-frontend/static/media/Vazir.83fea749de20816026b1.ttf",
-    "index.html": "/MortezaAnabestani/Shenaakht-frontend/index.html",
-    "static/media/wall-heroColume.svg": "/MortezaAnabestani/Shenaakht-frontend/static/media/wall-heroColume.b5b440ac83b8780c81e3.svg",
-    "static/media/navbarIcon.svg": "/MortezaAnabestani/Shenaakht-frontend/static/media/navbarIcon.69b7e02629751f4e8435.svg",
-    "main.b63dfc13.css.map": "/MortezaAnabestani/Shenaakht-frontend/static/css/main.b63dfc13.css.map",
-    "main.4f673236.js.map": "/MortezaAnabestani/Shenaakht-frontend/static/js/main.4f673236.js.map"
+    "main.css": "/Shenaakht-frontend/static/css/main.9b1f96f2.css",
+    "main.js": "/Shenaakht-frontend/static/js/main.3b7e4b8c.js",
+    "static/media/Vazirmatn-FD.ttf": "/Shenaakht-frontend/static/media/Vazirmatn-FD.62631f804aaf7a2a1843.ttf",
+    "static/media/Vazir-Bold.ttf": "/Shenaakht-frontend/static/media/Vazir-Bold.aa78d4003ca9ce547f9f.ttf",
+    "static/media/Vazir-Thin.ttf": "/Shenaakht-frontend/static/media/Vazir-Thin.2ae361f4698a58aeb9da.ttf",
+    "static/media/Vazir.ttf": "/Shenaakht-frontend/static/media/Vazir.83fea749de20816026b1.ttf",
+    "index.html": "/Shenaakht-frontend/index.html",
+    "static/media/wall-heroColume.svg": "/Shenaakht-frontend/static/media/wall-heroColume.b5b440ac83b8780c81e3.svg",
+    "static/media/navbarIcon.svg": "/Shenaakht-frontend/static/media/navbarIcon.69b7e02629751f4e8435.svg",
+    "main.9b1f96f2.css.map": "/Shenaakht-frontend/static/css/main.9b1f96f2.css.map",
+    "main.3b7e4b8c.js.map": "/Shenaakht-frontend/static/js/main.3b7e4b8c.js.map"
   },
   "entrypoints": [
-    "static/css/main.b63dfc13.css",
-    "static/js/main.4f673236.js"
+    "static/css/main.9b1f96f2.css",
+    "static/js/main.3b7e4b8c.js"
   ]
 }
