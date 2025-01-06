@@ -33,7 +33,7 @@
   }
   .navbarToggler {
     margin-top: 2%;
-    background-image: url("assets/images/icons/navbarIcon.svg");
+    background-image: url("../../../public/assets/images/icons/navbarIcon.svg");
     background-repeat: no-repeat;
     background-size: 2rem !important;
     padding-right: 0;
